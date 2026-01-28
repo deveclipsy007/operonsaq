@@ -399,14 +399,12 @@ class ClientController extends Controller {
             ]);
 
             // 2. Add First Message (Description)
-
-
-            // 3. Add First Message (Description)
             // Store as HTML since we use Trix
             $ticketModel->addMessage($ticketId, 'client', $description);
 
-            // 4. Handle Attachments
+            // 3. Handle Attachments
             if (!empty($_FILES['attachments'])) {
+                $pdo = \App\Core\Database::getInstance();
                 $uploadDir = __DIR__ . '/../../public/uploads/tickets/';
                 if (!is_dir($uploadDir)) mkdir($uploadDir, 0777, true);
 
