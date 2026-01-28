@@ -2,15 +2,31 @@
 session_start();
 
 // Load Environment Variables from .env file
-$envFile = __DIR__ . '/../.env';
-if (file_exists($envFile)) {
-    $lines = file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-    foreach ($lines as $line) {
-        if (strpos(trim($line), '#') === 0) continue; // Skip comments
-        if (strpos($line, '=') === false) continue;
-        list($name, $value) = explode('=', $line, 2);
-        putenv(trim($name) . '=' . trim($value));
+// Tenta múltiplos caminhos para compatibilidade com diferentes estruturas de deploy
+$possibleEnvPaths = [
+    __DIR__ . '/../.env',           // Estrutura padrão: public/index.php -> raiz/.env
+    __DIR__ . '/.env',              // Caso .env esteja na pasta public
+    dirname(__DIR__) . '/.env',     // Alternativa: um nível acima
+];
+
+$envLoaded = false;
+foreach ($possibleEnvPaths as $envFile) {
+    if (file_exists($envFile)) {
+        $lines = file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+        foreach ($lines as $line) {
+            if (strpos(trim($line), '#') === 0) continue;
+            if (strpos($line, '=') === false) continue;
+            list($name, $value) = explode('=', $line, 2);
+            putenv(trim($name) . '=' . trim($value));
+        }
+        $envLoaded = true;
+        break;
     }
+}
+
+// Log de erro se .env não for encontrado (útil para debug em produção)
+if (!$envLoaded) {
+    error_log('[Operon Cortex] CRITICAL: .env file not found. Searched paths: ' . implode(', ', $possibleEnvPaths));
 }
 
 // Error Reporting based on Environment
@@ -106,6 +122,17 @@ $router->get('/test-db', function() {
     } catch (Exception $e) {
         echo "Conexão com Banco de Dados: <strong style='color:red'>ERRO</strong> - " . $e->getMessage();
     }
+});
+
+// Diagnóstico de configuração (protegido por chave secreta)
+$router->get('/diagnose', function() {
+    $key = $_GET['key'] ?? '';
+    if ($key !== 'operon2024!diag') {
+        http_response_code(403);
+        die('Acesso negado');
+    }
+    header('Content-Type: application/json');
+    echo json_encode(Database::diagnose(), JSON_PRETTY_PRINT);
 });
 
 // Admin Route
