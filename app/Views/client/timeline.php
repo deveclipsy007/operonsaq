@@ -49,8 +49,17 @@ class="pb-24">
          </div>
     </div>
 
+    <!-- Project Cover Image -->
+    <?php if (!empty($project['cover_url'])): ?>
+        <div class="h-48 md:h-64 w-full bg-cover bg-center relative -mb-16 md:-mb-20" style="background-image: url('<?= $project['cover_url'] ?>')">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-50 dark:from-[#0D1517] to-transparent"></div>
+        </div>
+    <?php else: ?>
+        <div class="h-24 md:h-32 w-full bg-gradient-to-r from-operon-deep to-operon-mistDark opacity-10 -mb-12 md:-mb-16"></div>
+    <?php endif; ?>
+
     <!-- Top Navigation / Hero -->
-    <header class="pt-8 pb-6 px-4 md:px-8 max-w-7xl mx-auto">
+    <header class="pt-8 pb-6 px-4 md:px-8 max-w-7xl mx-auto relative z-10">
         <div class="flex flex-col md:flex-row md:items-start justify-between gap-8">
             
             <!-- Project Identity -->

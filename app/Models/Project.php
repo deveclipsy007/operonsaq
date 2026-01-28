@@ -21,8 +21,8 @@ class Project {
     }
     
     public function create($data) {
-        $sql = "INSERT INTO projects (client_id, name, description, thalamic_setting, status, start_date, deadline, phases_count, project_value, payment_method, installments, installments_paid, contract_url, notes, health_status, custom_progress, custom_completed_items, custom_total_items, manager_name, manager_phone, github_url, provisional_url, definitive_url, next_action, next_action_deadline, next_action_type, featured_message) 
-                VALUES (:client_id, :name, :description, :thalamic_setting, :status, :start_date, :deadline, :phases_count, :project_value, :payment_method, :installments, :installments_paid, :contract_url, :notes, :health_status, :custom_progress, :custom_completed_items, :custom_total_items, :manager_name, :manager_phone, :github_url, :provisional_url, :definitive_url, :next_action, :next_action_deadline, :next_action_type, :featured_message)";
+        $sql = "INSERT INTO projects (client_id, name, description, thalamic_setting, status, start_date, deadline, phases_count, project_value, payment_method, installments, installments_paid, contract_url, cover_url, notes, health_status, custom_progress, custom_completed_items, custom_total_items, manager_name, manager_phone, github_url, provisional_url, definitive_url, next_action, next_action_deadline, next_action_type, featured_message) 
+                VALUES (:client_id, :name, :description, :thalamic_setting, :status, :start_date, :deadline, :phases_count, :project_value, :payment_method, :installments, :installments_paid, :contract_url, :cover_url, :notes, :health_status, :custom_progress, :custom_completed_items, :custom_total_items, :manager_name, :manager_phone, :github_url, :provisional_url, :definitive_url, :next_action, :next_action_deadline, :next_action_type, :featured_message)";
         $stmt = $this->pdo->prepare($sql);
         return $stmt->execute($data);
     }

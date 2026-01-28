@@ -12,6 +12,13 @@
             <h1 class="text-3xl font-black text-operon-deep dark:text-white tracking-tight"><?= htmlspecialchars($project['name']) ?></h1>
         </div>
         
+        <?php if (!empty($project['cover_url'])): ?>
+            <div class="absolute top-0 right-0 w-full h-32 -z-10 opacity-20 overflow-hidden rounded-b-[3rem]">
+                <img src="<?= $project['cover_url'] ?>" class="w-full h-full object-cover blur-sm">
+                <div class="absolute inset-0 bg-gradient-to-b from-transparent to-slate-50 dark:to-[#0F1216]"></div>
+            </div>
+        <?php endif; ?>
+        
         <!-- Header Controls -->
         <div class="flex items-center gap-3" x-data="{ open: false }">
             

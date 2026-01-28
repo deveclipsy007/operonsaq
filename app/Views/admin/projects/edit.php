@@ -23,7 +23,7 @@
                 <button type="button" @click="view = 'info'" 
                     :class="view === 'info' ? 'bg-white dark:bg-white/10 text-operon-deep dark:text-white shadow-sm border border-operon-mist dark:border-white/10' : 'text-slate-400 dark:text-slate-500 hover:text-operon-deep dark:hover:text-operon-mist'"
                     class="px-4 py-2 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all flex items-center gap-2">
-                    <span class="text-lg">💰</span> Finanças
+                    <span class="text-lg">⚙️</span> Backstage
                 </button>
             </div>
 
@@ -105,7 +105,34 @@
                         <option value="en-US" <?= ($project['locale'] ?? '') === 'en-US' ? 'selected' : '' ?>>🇺🇸 English (US)</option>
                         <option value="es-ES" <?= ($project['locale'] ?? '') === 'es-ES' ? 'selected' : '' ?>>🇪🇸 Español</option>
                     </select>
-                    <p class="text-[10px] text-slate-400 mt-1">Define o idioma exibido no dashboard do cliente</p>
+                </div>
+
+                <!-- Project Cover Image -->
+                <div class="group" x-data="{ coverName: null, coverPreview: '<?= $project['cover_url'] ?? '' ?>' }">
+                    <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">📸 Imagem de Capa do Projeto</label>
+                    <div class="flex flex-col md:flex-row gap-4 items-start">
+                        <template x-if="coverPreview">
+                            <div class="relative w-full md:w-48 h-28 rounded-xl overflow-hidden border border-slate-200 dark:border-white/10 shadow-sm">
+                                <img :src="coverPreview" class="w-full h-full object-cover">
+                                <button type="button" @click="coverPreview = ''; coverName = ''" class="absolute top-1 right-1 bg-black/50 text-white p-1 rounded-full hover:bg-black transition-colors">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                </button>
+                            </div>
+                        </template>
+                        <label class="flex-1 flex flex-col items-center justify-center w-full h-28 border-2 border-slate-200 dark:border-white/10 border-dashed rounded-xl cursor-pointer bg-slate-50 dark:bg-white/5 hover:bg-slate-100 dark:hover:bg-white/10 hover:border-operon-mist transition-all group">
+                            <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                <div x-show="!coverName">
+                                    <svg class="w-6 h-6 mb-2 text-slate-400 group-hover:text-operon-deep dark:group-hover:text-operon-mist transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                    <p class="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Clique para escolher a capa</p>
+                                </div>
+                                <div x-show="coverName" class="text-center">
+                                     <p class="text-[10px] font-black text-operon-deep dark:text-operon-mist" x-text="coverName"></p>
+                                </div>
+                            </div>
+                            <input type="file" name="cover_image" class="hidden" @change="coverName = $event.target.files[0].name; coverPreview = URL.createObjectURL($event.target.files[0])" accept="image/*" />
+                        </label>
+                    </div>
+                    <p class="text-[9px] text-slate-400 mt-2">Recomendado: 1200x400px ou similar para melhor aspecto.</p>
                 </div>
             </div>
 

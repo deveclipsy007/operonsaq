@@ -115,6 +115,20 @@ class AdminController extends Controller {
             }
         }
 
+        // Cover Image Upload Handling
+        $coverUrl = null;
+        if (!empty($_FILES['cover_image']['name'])) {
+            $uploadDir = __DIR__ . '/../../public/uploads/covers/';
+            if (!is_dir($uploadDir)) mkdir($uploadDir, 0777, true);
+            
+            $fileName = time() . '_' . basename($_FILES['cover_image']['name']);
+            $targetPath = $uploadDir . $fileName;
+            
+            if (move_uploaded_file($_FILES['cover_image']['tmp_name'], $targetPath)) {
+                $coverUrl = '/uploads/covers/' . $fileName;
+            }
+        }
+
         $projectModel = new Project();
         $projectModel->create([
             'client_id' => $clientId,
@@ -130,6 +144,7 @@ class AdminController extends Controller {
             'installments' => $installments,
             'installments_paid' => 0,
             'contract_url' => $contractUrl,
+            'cover_url' => $coverUrl,
             'notes' => $notes,
             'health_status' => 'on_track',
             'custom_progress' => null,
@@ -211,7 +226,6 @@ class AdminController extends Controller {
         ];
 
         // --- Contract Upload Handling for Update ---
-
         if (!empty($_FILES['contract_file']['name'])) {
             $uploadDir = __DIR__ . '/../../public/uploads/contracts/';
             if (!is_dir($uploadDir)) mkdir($uploadDir, 0777, true);
@@ -221,6 +235,19 @@ class AdminController extends Controller {
             
             if (move_uploaded_file($_FILES['contract_file']['tmp_name'], $targetPath)) {
                 $data['contract_url'] = '/uploads/contracts/' . $fileName;
+            }
+        }
+
+        // --- Cover Image Upload Handling for Update ---
+        if (!empty($_FILES['cover_image']['name'])) {
+            $uploadDir = __DIR__ . '/../../public/uploads/covers/';
+            if (!is_dir($uploadDir)) mkdir($uploadDir, 0777, true);
+            
+            $fileName = time() . '_' . basename($_FILES['cover_image']['name']);
+            $targetPath = $uploadDir . $fileName;
+            
+            if (move_uploaded_file($_FILES['cover_image']['tmp_name'], $targetPath)) {
+                $data['cover_url'] = '/uploads/covers/' . $fileName;
             }
         }
 
