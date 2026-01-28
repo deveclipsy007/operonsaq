@@ -1,24 +1,42 @@
 RewriteEngine On
+RewriteBase /
 
 # Force HTTPS (Hostinger SSL)
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+# Remove www (optional - uncomment if needed)
+# RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+# RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
 # Handle Authorization Header
 RewriteCond %{HTTP:Authorization} ^(.*)
 RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
 
-# Block access to sensitive files
+# Block access to sensitive directories
+RewriteRule ^(app|database|lang|config)/ - [F,L]
 RewriteRule ^\.env - [F,L]
 RewriteRule ^\.git - [F,L]
-RewriteRule ^config\.php - [F,L]
-RewriteRule ^db\.php - [F,L]
+
+# Block access to PHP files except public/index.php
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule \.php$ - [F,L]
+
+# If not a file or directory, route to public/index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ public/index.php [QSA,L]
+
+# Serve assets directly from public folder
+RewriteCond %{REQUEST_URI} ^/public/
+RewriteRule ^public/(.*)$ public/$1 [L]
 
 # Security Headers
 <IfModule mod_headers.c>
     Header set X-Content-Type-Options "nosniff"
     Header set X-Frame-Options "SAMEORIGIN"
     Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
 
 # Prevent directory listing
@@ -39,10 +57,12 @@ Options -Indexes
     ExpiresByType application/javascript "access plus 1 month"
     ExpiresByType image/png "access plus 1 month"
     ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
     ExpiresByType image/webp "access plus 1 month"
 </IfModule>
 
 # Compress output
 <IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript
+    AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json
 </IfModule>
