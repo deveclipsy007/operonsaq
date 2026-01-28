@@ -290,23 +290,23 @@
                 </div>
 
                 <!-- ADMIN TIMELINE RENDERER (Based on Client V2) -->
-                <div class="bg-[#F5F5F7] rounded-3xl p-6 border border-slate-200 shadow-inner h-[800px] overflow-y-auto custom-scrollbar">
+                <div class="bg-[#1A1C22] rounded-3xl p-6 border border-white/10 shadow-inner h-[800px] overflow-y-auto custom-scrollbar">
                     
                     <!-- KPI Header -->
                     <div class="grid grid-cols-4 gap-2 mb-6">
-                        <div class="bg-white p-3 rounded-xl shadow-sm border border-slate-100/50">
+                        <div class="bg-[#15191D] p-3 rounded-xl shadow-sm border border-white/10">
                             <p class="text-[10px] uppercase font-bold text-slate-400">Progresso</p>
-                            <p class="text-xl font-bold text-slate-800"><?= $kpis['progress'] ?>%</p>
+                            <p class="text-xl font-bold text-white"><?= $kpis['progress'] ?>%</p>
                         </div>
-                        <div class="bg-white p-3 rounded-xl shadow-sm border border-slate-100/50">
+                        <div class="bg-[#15191D] p-3 rounded-xl shadow-sm border border-white/10">
                              <p class="text-[10px] uppercase font-bold text-slate-400">Prazo</p>
-                             <p class="text-xl font-bold text-slate-800"><?= $kpis['days_remaining'] ?>d</p>
+                             <p class="text-xl font-bold text-white"><?= $kpis['days_remaining'] ?>d</p>
                         </div>
-                        <div class="bg-white p-3 rounded-xl shadow-sm border border-slate-100/50">
+                        <div class="bg-[#15191D] p-3 rounded-xl shadow-sm border border-white/10">
                              <p class="text-[10px] uppercase font-bold text-slate-400">Entregas</p>
-                             <p class="text-xl font-bold text-slate-800"><?= $kpis['done_tasks'] ?>/<?= $kpis['total_tasks'] ?></p>
+                             <p class="text-xl font-bold text-white"><?= $kpis['done_tasks'] ?>/<?= $kpis['total_tasks'] ?></p>
                         </div>
-                        <div class="bg-white p-3 rounded-xl shadow-sm border border-slate-100/50">
+                        <div class="bg-[#15191D] p-3 rounded-xl shadow-sm border border-white/10">
                              <p class="text-[10px] uppercase font-bold text-slate-400">Saúde</p>
                              <?php
                                 $healthLabel = match($kpis['health']) {

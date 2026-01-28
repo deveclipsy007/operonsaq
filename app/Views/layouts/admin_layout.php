@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="antialiased bg-slate-50">
+<html lang="pt-BR" class="dark antialiased">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,33 +19,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* CRITICAL CSS FALLBACK */
-        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
-        .bg-operon-deep { background-color: #0A2F2F !important; }
-        .text-operon-deep { color: #0A2F2F !important; }
-        .bg-operon-mist { background-color: #D4DFD1 !important; }
-        .text-white { color: #ffffff !important; }
-        .rounded-xl { border-radius: 0.75rem !important; }
-        .flex { display: flex; }
-        .hidden { display: none; }
-        .lg\:hidden { display: none; }
-        @media (min-width: 1024px) {
-            .lg\:block { display: block; }
-            .lg\:flex { display: flex; }
-            .lg\:hidden { display: none !important; }
-        }
-        /* Ensure layout structure even if Tailwind fails */
-        aside { width: 16rem; }
-        header { height: 5rem; }
-    </style>
     <script>
-        // Simple Theme Detection
-        if (localStorage.getItem('admin_theme') === 'dark' || (!('admin_theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
+        // Force dark mode always
+        document.documentElement.classList.add('dark');
 
         tailwind.config = {
             darkMode: 'class',
@@ -56,19 +32,19 @@
                             deep: '#0A2F2F',
                             mist: '#D4DFD1',
                             mistDark: '#B9C7B4',
-                            paper: '#FBFBFC',
-                            ink: '#1A1C1E',
-                            slate: '#EBEFF2'
+                            paper: '#0B0E11',
+                            ink: '#E2E8F0',
+                            slate: '#1F2937'
                         },
-                        slate: { 50: '#f8fafc', 500: '#64748b', 800: '#1e293b' },
-                        indigo: { 50: '#eef2ff', 500: '#6366f1', 600: '#4f46e5' }
+                        slate: { 50: '#1F2937', 100: '#374151', 200: '#4B5563', 300: '#6B7280', 400: '#9CA3AF', 500: '#D1D5DB', 600: '#E5E7EB', 700: '#F3F4F6', 800: '#F9FAFB' },
+                        indigo: { 50: '#1e1b4b', 500: '#6366f1', 600: '#4f46e5' }
                     },
                     fontFamily: {
                         sans: ['Inter', 'SF Pro Display', '-apple-system', 'sans-serif'],
                     },
                     boxShadow: {
-                        'apple': '0 4px 12px rgba(10, 47, 47, 0.04)',
-                        'premium': '0 8px 32px rgba(10, 47, 47, 0.06)',
+                        'apple': '0 4px 24px rgba(0,0,0,0.3)',
+                        'premium': '0 8px 32px rgba(0,0,0,0.4)',
                     }
                 }
             }
@@ -78,37 +54,111 @@
         :root {
             --operon-deep: #0A2F2F;
             --operon-mist: #D4DFD1;
-            --operon-paper: #FBFBFC;
+            --operon-paper: #0B0E11;
+            --operon-card: #15191D;
+            --operon-border: rgba(255,255,255,0.08);
         }
         
-        /* Dark Mode Basis */
-        /* Dark Mode Basis */
-        body { background-color: #FBFBFC; color: #1A1C1E; transition: background-color 0.3s ease, color 0.3s ease; }
-        .card-apple { 
-            background-color: #ffffff; 
+        /* CRITICAL CSS - Dark Mode Only */
+        html, body { 
+            background-color: #0B0E11 !important; 
+            color: #E2E8F0 !important; 
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .card-apple, .ios-card { 
+            background-color: #15191D !important; 
             border-radius: 20px; 
-            border: 1px solid #EBEFF2; 
-            box-shadow: 0 4px 12px rgba(10, 47, 47, 0.04);
-            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.08) !important; 
+            box-shadow: 0 4px 24px rgba(0,0,0,0.3);
         }
-
-        /* Dark Mode Basis */
-        .dark body { background-color: #0B0E11; color: #E2E8F0; }
-        .dark .card-apple { background-color: #15191D; border-color: rgba(255,255,255,0.05); box-shadow: 0 4px 24px rgba(0,0,0,0.2); }
-        .dark .sidebar-item-active { background-color: rgba(212, 223, 209, 0.05); color: #D4DFD1; }
-        .dark .sidebar-item-active { background-color: rgba(212, 223, 209, 0.05); color: #D4DFD1; }
         
+        .bg-white { background-color: #15191D !important; }
+        .bg-slate-50, .bg-slate-100 { background-color: #1F2937 !important; }
+        .bg-gray-50, .bg-gray-100 { background-color: #1F2937 !important; }
+        
+        .text-slate-600, .text-slate-700, .text-slate-800, .text-slate-900 { color: #E2E8F0 !important; }
+        .text-gray-600, .text-gray-700, .text-gray-800, .text-gray-900 { color: #E2E8F0 !important; }
+        .text-operon-deep { color: #D4DFD1 !important; }
+        
+        .border-slate-100, .border-slate-200, .border-gray-100, .border-gray-200 { 
+            border-color: rgba(255,255,255,0.08) !important; 
+        }
+        
+        /* Form Inputs */
+        input, textarea, select {
+            background-color: #1F2937 !important;
+            border-color: rgba(255,255,255,0.1) !important;
+            color: #E2E8F0 !important;
+        }
+        input::placeholder, textarea::placeholder {
+            color: #6B7280 !important;
+        }
+        input:focus, textarea:focus, select:focus {
+            border-color: #D4DFD1 !important;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(212, 223, 209, 0.2) !important;
+        }
+        
+        /* Tables */
+        table { background-color: #15191D !important; }
+        thead { background-color: #1F2937 !important; }
+        th, td { border-color: rgba(255,255,255,0.08) !important; color: #E2E8F0 !important; }
+        tr:hover { background-color: rgba(255,255,255,0.03) !important; }
+        
+        /* Buttons */
+        .btn-primary, button[type="submit"] {
+            background-color: #0A2F2F !important;
+            color: #D4DFD1 !important;
+            border: 1px solid rgba(212, 223, 209, 0.2) !important;
+        }
+        .btn-primary:hover, button[type="submit"]:hover {
+            background-color: #0D3D3D !important;
+        }
+        
+        /* Sidebar */
+        .sidebar-item-active { 
+            background-color: rgba(212, 223, 209, 0.1) !important; 
+            color: #D4DFD1 !important; 
+        }
+        
+        /* Animations */
         .animate-fade-in { animation: fadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
         
-        /* Custom Scrollbar Premium */
+        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-        .dark ::-webkit-scrollbar-thumb { background: #1F2937; }
+        ::-webkit-scrollbar-thumb { background: #374151; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #4B5563; }
+        
+        /* Modal Backdrop */
+        .modal-backdrop { background-color: rgba(0,0,0,0.8) !important; }
+        
+        /* Fix specific white backgrounds */
+        [class*="bg-white"], [style*="background: white"], [style*="background-color: white"],
+        [style*="background:#fff"], [style*="background-color:#fff"] {
+            background-color: #15191D !important;
+        }
+        
+        /* Ensure all text is readable */
+        p, span, div, label, h1, h2, h3, h4, h5, h6, a, li {
+            color: inherit;
+        }
+        
+        /* Fix badges and tags */
+        .bg-emerald-50 { background-color: rgba(16, 185, 129, 0.15) !important; }
+        .bg-amber-50 { background-color: rgba(245, 158, 11, 0.15) !important; }
+        .bg-rose-50 { background-color: rgba(244, 63, 94, 0.15) !important; }
+        .bg-blue-50 { background-color: rgba(59, 130, 246, 0.15) !important; }
+        .bg-indigo-50 { background-color: rgba(99, 102, 241, 0.15) !important; }
+        
+        /* Operon Mist backgrounds */
+        .bg-operon-mist { background-color: rgba(212, 223, 209, 0.15) !important; }
+        .bg-operon-mist\/30 { background-color: rgba(212, 223, 209, 0.1) !important; }
     </style>
 </head>
-<body x-data="{ sidebarOpen: false }" class="font-sans text-slate-600 dark:text-[#E2E8F0] transition-colors duration-300">
+<body x-data="{ sidebarOpen: false }" class="font-sans text-[#E2E8F0] bg-[#0B0E11]">
 
     <!-- Mobile Sidebar Backdrop -->
     <div x-show="sidebarOpen" 
@@ -120,10 +170,10 @@
          x-transition:leave-start="opacity-100"
          x-transition:leave-end="opacity-0"
          @click="sidebarOpen = false"
-         class="fixed inset-0 bg-slate-900/80 z-40 lg:hidden glass backdrop-blur-sm"></div>
+         class="fixed inset-0 bg-black/80 z-40 lg:hidden backdrop-blur-sm"></div>
 
     <!-- Sidebar -->
-    <aside class="fixed inset-y-0 left-0 bg-operon-deep dark:bg-[#0B0E11] border-r border-white/5 w-64 transition-all duration-300 z-50 transform lg:translate-x-0" :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'">
+    <aside class="fixed inset-y-0 left-0 bg-[#0A2F2F] border-r border-white/5 w-64 transition-all duration-300 z-50 transform lg:translate-x-0" :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'">
         <div class="h-20 flex items-center px-6 border-b border-white/5">
             <div class="flex items-center gap-3 font-bold text-white text-xl tracking-tight">
                 <div class="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center text-operon-mist shadow-lg backdrop-blur-md border border-white/10">
@@ -147,7 +197,7 @@
                 Clientes
             </a>
             <a href="/admin/support" class="flex items-center gap-3 px-3 py-3 text-sm font-semibold rounded-xl text-white/60 hover:bg-white/5 hover:text-white transition-all group">
-                <svg class="w-5 h-5 opacity-50 group-hover:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                <svg class="w-5 h-5 opacity-50 group-hover:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
                 Suporte & Ideias
             </a>
         </nav>
@@ -158,7 +208,7 @@
                 <img class="w-9 h-9 rounded-full ring-2 ring-white/10" src="https://ui-avatars.com/api/?name=Admin+User&background=0A2F2F&color=fff" alt="Admin">
                 <div class="flex-1 min-w-0">
                     <p class="text-sm font-bold text-white truncate">Admin User</p>
-                    <p class="text-xs text-white/40 truncate font-medium underline decoration-operon-mist/30">Versão 2.0</p>
+                    <p class="text-xs text-white/40 truncate font-medium">Versão 2.0</p>
                 </div>
                 <a href="/admin/logout" class="text-white/40 hover:text-white transition-colors" title="Sair">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
@@ -168,39 +218,22 @@
     </aside>
 
     <!-- Main Content -->
-    <div class="lg:ml-64 min-h-screen flex flex-col">
+    <div class="lg:ml-64 min-h-screen flex flex-col bg-[#0B0E11]">
         <!-- Topbar -->
-        <header class="h-20 bg-white/70 dark:bg-[#0B0E11]/70 backdrop-blur-xl border-b border-slate-100 dark:border-white/5 flex items-center justify-between px-8 sticky top-0 z-40 transition-colors">
-            <button @click="sidebarOpen = true" class="lg:hidden p-2 text-slate-400">
+        <header class="h-20 bg-[#0B0E11]/90 backdrop-blur-xl border-b border-white/5 flex items-center justify-between px-8 sticky top-0 z-40">
+            <button @click="sidebarOpen = true" class="lg:hidden p-2 text-[#9CA3AF]">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
             <div class="flex-1"></div>
             <div class="flex items-center gap-4">
-                <!-- Theme Toggle -->
-                <button onclick="toggleTheme()" class="w-10 h-10 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/10 flex items-center justify-center text-slate-400 hover:text-operon-deep dark:hover:text-operon-mist transition-all">
-                    <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
-                    <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                </button>
-
-                <script>
-                    function toggleTheme() {
-                        if (document.documentElement.classList.contains('dark')) {
-                            document.documentElement.classList.remove('dark');
-                            localStorage.setItem('admin_theme', 'light');
-                        } else {
-                            document.documentElement.classList.add('dark');
-                            localStorage.setItem('admin_theme', 'dark');
-                        }
-                    }
-                </script>
-
-                <div class="h-10 w-10 rounded-xl bg-operon-mist/30 flex items-center justify-center text-operon-deep font-black text-sm border border-operon-mist">
+                <!-- Admin Avatar -->
+                <div class="h-10 w-10 rounded-xl bg-[#0A2F2F] flex items-center justify-center text-[#D4DFD1] font-black text-sm border border-[#D4DFD1]/20">
                     A
                 </div>
             </div>
         </header>
 
-        <main class="flex-1 py-8 px-4 sm:px-6 lg:px-8">
+        <main class="flex-1 py-8 px-4 sm:px-6 lg:px-8 bg-[#0B0E11]">
             <div class="max-w-7xl mx-auto animate-fade-in">
                 <?php require $viewPath; ?>
             </div>

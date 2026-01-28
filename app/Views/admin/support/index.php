@@ -24,11 +24,11 @@
             <?php else: ?>
                 <div class="space-y-3">
                     <?php foreach($tickets as $t): ?>
-                        <a href="/admin/support/ticket?id=<?= $t['id'] ?>" class="block ios-card p-5 border-l-4 border-l-operon-deep hover:shadow-premium hover:border-operon-mist transition-all group border border-slate-100">
+                        <a href="/admin/support/ticket?id=<?= $t['id'] ?>" class="block ios-card p-5 border-l-4 border-l-operon-deep hover:shadow-premium hover:border-operon-mist transition-all group border border-white/10 bg-[#15191D]">
                             <div class="flex justify-between items-start mb-3">
-                                <h3 class="font-black text-operon-deep group-hover:text-black transition-colors tracking-tight"><?= htmlspecialchars($t['subject']) ?></h3>
+                                <h3 class="font-black text-white group-hover:text-operon-mist transition-colors tracking-tight"><?= htmlspecialchars($t['subject']) ?></h3>
                                 <?php if($t['status'] === 'open'): ?>
-                                    <span class="px-2 py-0.5 rounded-md bg-rose-50 text-rose-600 text-[10px] font-black uppercase tracking-wider border border-rose-100">Aberto</span>
+                                    <span class="px-2 py-0.5 rounded-md bg-rose-500/20 text-rose-400 text-[10px] font-black uppercase tracking-wider border border-rose-500/20">Aberto</span>
                                 <?php else: ?>
                                     <span class="px-2 py-0.5 rounded-md bg-operon-mist text-operon-deep text-[10px] font-black uppercase tracking-wider border border-operon-mistDark/30"><?= $t['status'] ?></span>
                                 <?php endif; ?>

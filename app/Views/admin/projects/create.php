@@ -28,7 +28,7 @@
                 </button>
             </div>
 
-            <div class="h-8 w-px bg-slate-200 mx-1"></div>
+            <div class="h-8 w-px bg-white/10 mx-1"></div>
 
             <a href="/admin" class="group flex items-center px-4 py-2 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg text-slate-600 dark:text-slate-400 text-xs font-bold uppercase tracking-wider hover:bg-slate-50 dark:hover:bg-white/10 hover:text-indigo-600 dark:hover:text-white transition-all shadow-sm">
                 <svg class="w-3 h-3 mr-2 text-slate-400 group-hover:text-indigo-600 dark:group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
@@ -88,7 +88,7 @@
                 </div>
             </div>
 
-            <hr class="border-slate-100 my-8">
+            <hr class="border-white/10 my-8">
 
             <!-- Visual Thalamic Setting -->
             <div>
@@ -101,8 +101,8 @@
                     <!-- Macro -->
                     <label class="cursor-pointer relative">
                         <input type="radio" name="thalamic_setting" value="macro" x-model="thalamic" class="peer sr-only">
-                        <div class="p-5 rounded-[20px] border-2 border-slate-50 dark:border-white/5 bg-white dark:bg-white/5 hover:border-operon-mist peer-checked:border-operon-deep dark:peer-checked:border-operon-mist peer-checked:bg-operon-mist/10 dark:peer-checked:bg-operon-mist/10 transition-all h-full flex flex-col items-center text-center group shadow-sm">
-                            <div class="w-12 h-12 rounded-xl bg-slate-50 dark:bg-white/5 text-2xl flex items-center justify-center mb-4 group-hover:bg-operon-mist transition-colors group-hover:scale-110">🔭</div>
+                        <div class="p-5 rounded-[20px] border-2 border-white/5 bg-[#15191D] hover:border-operon-mist peer-checked:border-operon-mist peer-checked:bg-operon-mist/10 transition-all h-full flex flex-col items-center text-center group shadow-sm">
+                            <div class="w-12 h-12 rounded-xl bg-white/5 text-2xl flex items-center justify-center mb-4 group-hover:bg-operon-mist group-hover:text-operon-deep transition-colors group-hover:scale-110">🔭</div>
                             <span class="block text-sm font-black text-operon-deep dark:text-white mb-2">Macro</span>
                             <span class="block text-[10px] text-slate-500 dark:text-slate-400 font-medium leading-relaxed">Foco apenas em grandes entregas e marcos estratégicos.</span>
                         </div>
@@ -110,8 +110,8 @@
                     <!-- Hybrid -->
                     <label class="cursor-pointer relative">
                         <input type="radio" name="thalamic_setting" value="hybrid" x-model="thalamic" class="peer sr-only">
-                        <div class="p-5 rounded-[20px] border-2 border-slate-50 dark:border-white/5 bg-white dark:bg-white/5 hover:border-operon-mist peer-checked:border-operon-deep dark:peer-checked:border-operon-mist peer-checked:bg-operon-mist/10 dark:peer-checked:bg-operon-mist/10 transition-all h-full flex flex-col items-center text-center group shadow-sm">
-                            <div class="w-12 h-12 rounded-xl bg-slate-50 dark:bg-white/5 text-2xl flex items-center justify-center mb-4 group-hover:bg-operon-mist transition-colors group-hover:scale-110">⚖️</div>
+                        <div class="p-5 rounded-[20px] border-2 border-white/5 bg-[#15191D] hover:border-operon-mist peer-checked:border-operon-mist peer-checked:bg-operon-mist/10 transition-all h-full flex flex-col items-center text-center group shadow-sm">
+                            <div class="w-12 h-12 rounded-xl bg-white/5 text-2xl flex items-center justify-center mb-4 group-hover:bg-operon-mist group-hover:text-operon-deep transition-colors group-hover:scale-110">⚖️</div>
                             <span class="block text-sm font-black text-operon-deep dark:text-white mb-2">Híbrido</span>
                             <span class="block text-[10px] text-slate-500 dark:text-slate-400 font-medium leading-relaxed">Equilíbrio neural ideal entre técnica e visão de negócio.</span>
                         </div>
@@ -119,8 +119,8 @@
                     <!-- Micro -->
                     <label class="cursor-pointer relative">
                         <input type="radio" name="thalamic_setting" value="micro" x-model="thalamic" class="peer sr-only">
-                        <div class="p-5 rounded-[20px] border-2 border-slate-50 dark:border-white/5 bg-white dark:bg-white/5 hover:border-operon-mist peer-checked:border-operon-deep dark:peer-checked:border-operon-mist peer-checked:bg-operon-mist/10 dark:peer-checked:bg-operon-mist/10 transition-all h-full flex flex-col items-center text-center group shadow-sm">
-                            <div class="w-12 h-12 rounded-xl bg-slate-50 dark:bg-white/5 text-2xl flex items-center justify-center mb-4 group-hover:bg-operon-mist transition-colors group-hover:scale-110">🔬</div>
+                        <div class="p-5 rounded-[20px] border-2 border-white/5 bg-[#15191D] hover:border-operon-mist peer-checked:border-operon-mist peer-checked:bg-operon-mist/10 transition-all h-full flex flex-col items-center text-center group shadow-sm">
+                            <div class="w-12 h-12 rounded-xl bg-white/5 text-2xl flex items-center justify-center mb-4 group-hover:bg-operon-mist group-hover:text-operon-deep transition-colors group-hover:scale-110">🔬</div>
                             <span class="block text-sm font-black text-operon-deep dark:text-white mb-2">Micro</span>
                             <span class="block text-[10px] text-slate-500 dark:text-slate-400 font-medium leading-relaxed">Transparência total. Cada pulso técnico é visível ao cliente.</span>
                         </div>
@@ -190,7 +190,7 @@
 
             </div>
 
-            <hr class="border-slate-100 my-8">
+            <hr class="border-white/10 my-8">
 
             <!-- Contract Upload -->
             <div class="group">
