@@ -7,6 +7,37 @@ use App\Models\Project;
 
 class AdminController extends Controller {
 
+    /**
+     * Construtor que verifica autenticação em todas as rotas do admin
+     * Exceção: login e authenticate
+     */
+    public function __construct() {
+        // Inicia a sessão se ainda não estiver iniciada
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        
+        // Rotas que não precisam de autenticação
+        $publicRoutes = ['login', 'authenticate'];
+        
+        // Detecta qual método está sendo chamado baseado na URL
+        $uri = $_SERVER['REQUEST_URI'] ?? '';
+        $isPublicRoute = false;
+        
+        foreach ($publicRoutes as $route) {
+            if (strpos($uri, '/admin/' . $route) !== false || $uri === '/admin/login') {
+                $isPublicRoute = true;
+                break;
+            }
+        }
+        
+        // Se não for rota pública e não estiver logado, redireciona para login
+        if (!$isPublicRoute && empty($_SESSION['admin_logged_in'])) {
+            header("Location: /admin/login");
+            exit;
+        }
+    }
+
     public function index() {
         $projectModel = new Project();
         $projects = $projectModel->getAll();

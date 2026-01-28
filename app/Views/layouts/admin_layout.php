@@ -50,7 +50,7 @@
             }
         }
     </script>
-    <style>
+<style>
         :root {
             --operon-deep: #0A2F2F;
             --operon-mist: #D4DFD1;
@@ -156,6 +156,138 @@
         /* Operon Mist backgrounds */
         .bg-operon-mist { background-color: rgba(212, 223, 209, 0.15) !important; }
         .bg-operon-mist\/30 { background-color: rgba(212, 223, 209, 0.1) !important; }
+        
+        /* ===== MOBILE RESPONSIVENESS ===== */
+        
+        /* Mobile First - Base */
+        @media (max-width: 768px) {
+            /* Header ajustado */
+            header.h-20 {
+                height: 60px !important;
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+            
+            /* Main content com menos padding */
+            main {
+                padding: 1rem !important;
+            }
+            
+            /* Cards responsivos */
+            .card-apple, .ios-card {
+                border-radius: 16px !important;
+                padding: 1rem !important;
+            }
+            
+            /* Títulos menores */
+            h1 {
+                font-size: 1.5rem !important;
+                line-height: 1.2 !important;
+            }
+            h2 {
+                font-size: 1.25rem !important;
+            }
+            h3 {
+                font-size: 1rem !important;
+            }
+            
+            /* Grid responsivo - 1 coluna em mobile */
+            .grid-cols-2, .grid-cols-3, .grid-cols-4 {
+                grid-template-columns: 1fr !important;
+            }
+            
+            /* Stat cards - 2 colunas em mobile */
+            .grid.gap-6.sm\\:grid-cols-2.lg\\:grid-cols-4 {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.75rem !important;
+            }
+            
+            /* Botões full width */
+            button, .btn, a.btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            /* Forms responsivos */
+            input, textarea, select {
+                font-size: 16px !important; /* Previne zoom no iOS */
+            }
+            
+            /* Tabelas scrolláveis */
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            
+            /* Flexbox em coluna */
+            .flex.items-center.justify-between {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start !important;
+            }
+            
+            /* Spacing menor */
+            .gap-6 { gap: 1rem !important; }
+            .gap-8 { gap: 1.25rem !important; }
+            .mb-10 { margin-bottom: 1.5rem !important; }
+            .py-8 { padding-top: 1rem !important; padding-bottom: 1rem !important; }
+            .px-8 { padding-left: 1rem !important; padding-right: 1rem !important; }
+            
+            /* Sidebar mobile */
+            aside {
+                width: 280px !important;
+            }
+            
+            /* Footer padding */
+            .p-4 {
+                padding: 0.75rem !important;
+            }
+        }
+        
+        /* Small phones */
+        @media (max-width: 380px) {
+            h1 {
+                font-size: 1.25rem !important;
+            }
+            
+            .grid.gap-6.sm\\:grid-cols-2.lg\\:grid-cols-4 {
+                grid-template-columns: 1fr !important;
+            }
+            
+            .text-3xl { font-size: 1.5rem !important; }
+            .text-2xl { font-size: 1.25rem !important; }
+            .text-xl { font-size: 1rem !important; }
+        }
+        
+        /* Tablet landscape */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            main {
+                padding: 1.5rem !important;
+            }
+            
+            .grid-cols-4 {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+        
+        /* Sidebar closed on mobile by default */
+        @media (max-width: 1023px) {
+            aside:not(.translate-x-0) {
+                transform: translateX(-100%);
+            }
+        }
+        
+        /* Touch friendly elements */
+        @media (pointer: coarse) {
+            button, a, input, select, textarea {
+                min-height: 44px;
+            }
+            
+            nav a {
+                padding: 0.875rem 1rem !important;
+            }
+        }
     </style>
 </head>
 <body x-data="{ sidebarOpen: false }" class="font-sans text-[#E2E8F0] bg-[#0B0E11]">
