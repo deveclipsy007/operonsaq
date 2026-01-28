@@ -69,9 +69,9 @@ nano .env
 APP_ENV=production
 DB_TYPE=mysql
 DB_HOST=localhost
-DB_NAME=u123456789_operon
-DB_USER=u123456789_admin
-DB_PASS=SuaSenhaSegura123!
+DB_NAME=u854567422_operonsaq
+DB_USER=u854567422_hello
+DB_PASS=Escher007.
 ```
 
 ---
