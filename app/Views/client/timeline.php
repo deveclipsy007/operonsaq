@@ -62,17 +62,7 @@ class="pb-24">
             
             <!-- Project Identity -->
             <div class="flex-1 space-y-4 sm:space-y-0">
-                <?php if (!empty($project['featured_message'])): ?>
-                    <div class="mb-6 animate-fade-in">
-                        <span class="inline-flex items-center gap-2.5 px-4 py-1.5 bg-operon-mist/20 border border-operon-mist/40 rounded-full text-[10px] font-semibold text-operon-deep uppercase tracking-[0.2em]">
-                            <span class="relative flex h-1.5 w-1.5">
-                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-operon-deep opacity-40"></span>
-                                <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-operon-deep"></span>
-                            </span>
-                            <?= htmlspecialchars($project['featured_message']) ?>
-                        </span>
-                    </div>
-                <?php endif; ?>
+
 
                 <div class="flex items-center gap-4 mb-2">
                     <div class="w-14 h-14 bg-operon-deep text-operon-mist rounded-2xl flex items-center justify-center font-black text-xl shadow-premium border border-white/10">
