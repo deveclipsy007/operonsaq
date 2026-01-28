@@ -240,7 +240,14 @@ class AdminController extends Controller {
 
         // --- Cover Image Upload Handling for Update ---
         if (!empty($_FILES['cover_image']['name'])) {
-            $uploadDir = __DIR__ . '/../../public/uploads/covers/';
+            // Dynamic Path Detection
+            $baseDir = __DIR__ . '/../../';
+            $publicUploads = $baseDir . 'public/uploads/covers/';
+            $rootUploads = $baseDir . 'uploads/covers/';
+
+            // Use public/ if exists (Local), otherwise root (Hostinger Flat)
+            $uploadDir = is_dir($baseDir . 'public') ? $publicUploads : $rootUploads;
+            
             if (!is_dir($uploadDir)) mkdir($uploadDir, 0777, true);
             
             $fileName = time() . '_' . basename($_FILES['cover_image']['name']);
