@@ -15,6 +15,15 @@
         <!-- Header Controls -->
         <div class="flex items-center gap-3" x-data="{ open: false }">
             
+            <!-- Logs Button -->
+            <a href="/admin/projects/logs?id=<?= $project['id'] ?>" 
+               class="group flex items-center gap-2 pl-2 pr-4 py-2 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl text-slate-600 dark:text-slate-200 font-bold text-sm shadow-sm hover:border-indigo-300 hover:ring-2 hover:ring-indigo-100/50 hover:text-indigo-600 transition-all">
+                <div class="w-8 h-8 rounded-lg bg-slate-50 dark:bg-white/5 group-hover:bg-indigo-50 group-hover:text-indigo-600 flex items-center justify-center text-slate-400 transition-colors">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                </div>
+                <span>Logs</span>
+            </a>
+
             <!-- Config Button (Settings) -->
             <a href="/admin/projects/edit?id=<?= $project['id'] ?>" 
                class="group flex items-center gap-2 pl-2 pr-4 py-2 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl text-slate-600 dark:text-slate-200 font-bold text-sm shadow-sm hover:border-operon-mist hover:ring-2 hover:ring-operon-mist/20 hover:text-operon-deep transition-all">

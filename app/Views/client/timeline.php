@@ -644,7 +644,7 @@ class="pb-24">
                         <p class="text-xs text-slate-400 dark:text-slate-500 font-medium mb-1"><?= \App\Core\I18n::t('finance.total_investment', [], 'Investimento Total') ?></p>
                         <div class="flex items-baseline gap-1">
                             <span class="text-xs text-slate-400 dark:text-slate-500 font-medium">R$</span>
-                            <span class="text-2xl font-bold tracking-tight text-slate-800 dark:text-white"><?= number_format($project['project_value'], 2, ',', '.') ?></span>
+                            <span class="text-2xl font-bold tracking-tight text-slate-800 dark:text-white"><?= number_format((float)($project['project_value'] ?? 0), 2, ',', '.') ?></span>
                         </div>
                     </div>
 
@@ -671,7 +671,7 @@ class="pb-24">
                              Fases
                          </div>
                          <div class="text-right text-slate-400 dark:text-slate-500">
-                             <span class="font-bold text-slate-700 dark:text-white block">R$ <?= number_format($project['project_value'] * (1 - (($project['installments_paid'] ?? 0) / max(1, $project['installments']))), 2, ',', '.') ?></span>
+                             <span class="font-bold text-slate-700 dark:text-white block">R$ <?= number_format((float)($project['project_value'] ?? 0) * (1 - ((int)($project['installments_paid'] ?? 0) / max(1, (int)($project['installments'] ?? 1)))), 2, ',', '.') ?></span>
                              Restante
                          </div>
                     </div>
@@ -756,9 +756,6 @@ class="pb-24">
                         <span class="w-6 text-center mr-2">💻</span> <?= \App\Core\I18n::t('links.repo') ?>
                     </a>
                     <?php endif; ?>
-                    <a href="/client/projects/branding?id=<?= $project['id'] ?>" class="flex items-center p-2 rounded-lg hover:bg-slate-50 transition-colors text-sm font-medium text-slate-700">
-                        <span class="w-6 text-center mr-2">🎨</span> <?= \App\Core\I18n::t('links.branding') ?>
-                    </a>
                     <a href="/client/projects/documents?id=<?= $project['id'] ?>" class="flex items-center p-2 rounded-lg hover:bg-slate-50 transition-colors text-sm font-medium text-slate-700">
                         <span class="w-6 text-center mr-2">📜</span> <?= \App\Core\I18n::t('links.documents') ?>
                     </a>

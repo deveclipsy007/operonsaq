@@ -14,8 +14,14 @@ class Ticket {
     // --- Tickets ---
 
     public function create($data) {
-        $sql = "INSERT INTO tickets (project_id, subject, status, priority) VALUES (:project_id, :subject, 'open', :priority)";
+        $sql = "INSERT INTO tickets (project_id, subject, status, priority, category) VALUES (:project_id, :subject, 'open', :priority, :category)";
         $stmt = $this->pdo->prepare($sql);
+        
+        // Ensure category defaults if not present
+        if (!isset($data[':category'])) {
+            $data[':category'] = 'support';
+        }
+
         $stmt->execute($data);
         return $this->pdo->lastInsertId();
     }

@@ -138,6 +138,7 @@ $router->post('/admin/projects/delete', [AdminController::class, 'deleteProject'
 $router->get('/admin/support', [SupportController::class, 'index']);
 $router->get('/admin/support/ticket', [SupportController::class, 'ticket']);
 $router->post('/admin/support/reply', [SupportController::class, 'reply']);
+$router->get('/admin/projects/logs', [AdminController::class, 'logs']);
 
 // Admin Auth
 $router->get('/admin/login', [AdminController::class, 'login']);
@@ -148,7 +149,6 @@ $router->get('/login', [ClientController::class, 'login']);
 $router->post('/login', [ClientController::class, 'authenticate']);
 $router->get('/logout', [ClientController::class, 'logout']);
 $router->get('/dashboard', [ClientController::class, 'dashboard']);
-$router->get('/client/projects/branding', [ClientController::class, 'branding']);
 $router->get('/client/projects/documents', [ClientController::class, 'documents']);
 $router->get('/client/projects/ideas', [ClientController::class, 'ideas']);
 $router->post('/client/projects/ideas/store', [ClientController::class, 'storeIdea']);

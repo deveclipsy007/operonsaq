@@ -127,6 +127,18 @@ return [
     'date.yesterday' => 'Ontem',
     'date.days_ago' => 'há :count dias',
     
+    // Support
+    'support.title' => 'Suporte & Ideias',
+    'support.subtitle' => 'Abra chamados, relate problemas ou envie sugestões.',
+    'support.category' => 'Categoria',
+    'support.priority' => 'Prioridade',
+    'support.report' => 'Relatório Técnico',
+    'support.attachments' => 'Anexos',
+    'support.submit' => 'Transmitir Solicitação',
+    'support.your_tickets' => 'Seus Chamados',
+    'support.no_tickets' => 'Nenhum chamado aberto no momento.',
+    'action.other' => 'Outro',
+    
     // Footer
     'footer.powered_by' => 'Desenvolvido por',
     'footer.contact' => 'Entre em contato',

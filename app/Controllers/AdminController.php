@@ -332,7 +332,7 @@ class AdminController extends Controller {
             ];
         }
 
-        $kpiEvents = array_filter($events, fn($e) => !in_array($e['type'], ['WARNING', 'DOCUMENT', 'ARTICLE']));
+        $kpiEvents = array_filter($events, fn($e) => $e['type'] === 'CHECKPOINT');
 
         $kpis = [
             'days_remaining' => $daysRemaining,
@@ -794,5 +794,42 @@ class AdminController extends Controller {
             // Log error but don't break the flow
             error_log("Email notification failed: " . $e->getMessage());
         }
+    }
+
+    public function logs() {
+        $id = $_GET['id'] ?? null;
+        if (!$id) {
+            header("Location: /admin");
+            exit;
+        }
+
+        $projectModel = new Project();
+        $project = $projectModel->find($id);
+
+        if (!$project) {
+            header("Location: /admin");
+            exit;
+        }
+
+        // Fetch Logs (Events)
+        $events = $projectModel->getTimeline($id);
+        
+        // Fetch Tickets
+        $ticketModel = new \App\Models\Ticket();
+        $tickets = $ticketModel->getByProject($id);
+
+        // Fetch Feedback
+        $pdo = \App\Core\Database::getInstance();
+        $stmt = $pdo->prepare("SELECT * FROM project_feedback WHERE project_id = :id ORDER BY created_at DESC");
+        $stmt->execute([':id' => $id]);
+        $feedbacks = $stmt->fetchAll();
+
+        // Combine logs if user wants unified view, but passing separate works well for UI sections
+        $this->view('admin/projects/logs', [
+            'project' => $project,
+            'events' => $events,
+            'tickets' => $tickets,
+            'feedbacks' => $feedbacks
+        ], 'admin_layout');
     }
 }

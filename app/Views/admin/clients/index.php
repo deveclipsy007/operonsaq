@@ -32,7 +32,7 @@
                 $parts = explode(' ', $client['name']);
                 $initials = strtoupper(substr($parts[0], 0, 1) . (isset($parts[1]) ? substr($parts[1], 0, 1) : substr($parts[0], 1, 1)));
             ?>
-            <div class="card-apple dark:bg-[#15191D] p-6 hover:shadow-premium hover:border-operon-mist transition-all duration-300 group flex flex-col h-full border border-slate-100 dark:border-white/5">
+            <div class="card-apple p-6 hover:shadow-premium hover:border-operon-mist transition-all duration-300 group flex flex-col h-full border border-slate-100 dark:border-white/5">
                 
                 <div class="flex items-center justify-between mb-6">
                     <div class="flex items-center space-x-4">

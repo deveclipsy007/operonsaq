@@ -60,8 +60,20 @@
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #E2E8F0; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #CBD5E1; }
+        
+        /* CRITICAL CSS FALLBACK */
+        .flex { display: flex; }
+        .hidden { display: none; }
+        header { min-height: 5rem; }
     </style>
-    <link href="/assets/css/style.css" rel="stylesheet">
+    <?php
+    // Determine CSS Path based on execution context
+    $cssPath = '/assets/css/style.css';
+    if (file_exists(__DIR__ . '/../../public/assets/css/style.css') && !file_exists($_SERVER['DOCUMENT_ROOT'] . '/assets/css/style.css')) {
+        $cssPath = '/public/assets/css/style.css';
+    }
+    ?>
+    <link href="<?= $cssPath ?>?v=<?= time() ?>" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>

@@ -93,7 +93,7 @@ class ClientController extends Controller {
         $daysRemaining = max(0, ceil((max(1, ($deadline - $startDate) / 86400) - max(0, ($now - $startDate) / 86400))));
 
         // Use Manual KPI overrides or Auto-calculated from tasks
-        $kpiEvents = array_filter($visibleEvents, fn($e) => in_array($e['type'], ['MICRO', 'MACRO', 'CHECKPOINT']));
+        $kpiEvents = array_filter($visibleEvents, fn($e) => $e['type'] === 'CHECKPOINT');
         $autoProgress = $projectModel->calculateProgress($project['id']);
         
         $kpis = [
@@ -167,23 +167,6 @@ class ClientController extends Controller {
         ], 'client_layout');
     }
 
-    public function branding() {
-        if (!isset($_SESSION['client_id'])) {
-            header("Location: /login");
-            exit;
-        }
-        
-        $id = $_GET['id'] ?? null;
-        if(!$id) {
-            header("Location: /dashboard");
-            exit;
-        }
-        
-        $projectModel = new Project();
-        $project = $projectModel->find($id);
-        
-        $this->view('client/branding', ['project' => $project], 'client_layout');
-    }
 
     public function documents() {
         if (!isset($_SESSION['client_id'])) {
@@ -411,18 +394,12 @@ class ClientController extends Controller {
             $ticketId = $ticketModel->create([
                 ':project_id' => $project_id,
                 ':subject' => $subject,
-                ':priority' => $priority
+                ':priority' => $priority,
+                ':category' => $category
             ]);
 
-            // 2. Update Category (create doesn't have it yet in sql string usually or we need to update model)
-            // Wait, I need to update Ticket::create to accept category OR run an update.
-            // Let's run a manual update for category since model might be old or I need to update model too.
-            // Actually, best to update Ticket Model first. But I can just do a raw query here for speed/robustness if I don't want to context switch.
-            // "Ticket::create" method in previous turns only took specific params.
-            
-            $pdo = \App\Core\Database::getInstance();
-            $pdo->prepare("UPDATE tickets SET category = :cat, subject = :sub WHERE id = :id")
-                ->execute([':cat' => $category, ':sub' => $subject, ':id' => $ticketId]);
+            // 2. Add First Message (Description)
+
 
             // 3. Add First Message (Description)
             // Store as HTML since we use Trix

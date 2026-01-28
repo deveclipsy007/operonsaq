@@ -5,31 +5,21 @@ RewriteBase /
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Remove www (optional - uncomment if needed)
-# RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-# RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
-
 # Handle Authorization Header
 RewriteCond %{HTTP:Authorization} ^(.*)
 RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
 
-# Block access to sensitive directories
-RewriteRule ^(app|database|lang|config)/ - [F,L]
+# Block access to sensitive files that might accidentally end up here
 RewriteRule ^\.env - [F,L]
 RewriteRule ^\.git - [F,L]
 
-# Block access to PHP files except public/index.php
-RewriteCond %{REQUEST_URI} !^/public/
-RewriteRule \.php$ - [F,L]
+# Serve existing files and directories directly (assets, uploads, etc.)
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
 
-# If not a file or directory, route to public/index.php
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ public/index.php [QSA,L]
-
-# Serve assets directly from public folder
-RewriteCond %{REQUEST_URI} ^/public/
-RewriteRule ^public/(.*)$ public/$1 [L]
+# Route everything else to index.php (front controller)
+RewriteRule ^(.*)$ index.php [QSA,L]
 
 # Security Headers
 <IfModule mod_headers.c>

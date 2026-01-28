@@ -16,12 +16,12 @@
             <!-- View Toggle -->
             <div class="bg-operon-mist/20 dark:bg-white/5 p-1 rounded-xl flex items-center border border-operon-mist/50 dark:border-white/10">
                 <button type="button" @click="view = 'cms'" 
-                    :class="view === 'cms' ? 'bg-white dark:bg-[#15191D] text-operon-deep dark:text-white shadow-sm border border-operon-mist dark:border-white/10' : 'text-slate-400 dark:text-slate-500 hover:text-operon-deep dark:hover:text-operon-mist'"
+                    :class="view === 'cms' ? 'bg-white dark:bg-white/10 text-operon-deep dark:text-white shadow-sm border border-operon-mist dark:border-white/10' : 'text-slate-400 dark:text-slate-500 hover:text-operon-deep dark:hover:text-operon-mist'"
                     class="px-4 py-2 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all flex items-center gap-2">
                     <span class="text-lg">🎨</span> Interface
                 </button>
                 <button type="button" @click="view = 'info'" 
-                    :class="view === 'info' ? 'bg-white dark:bg-[#15191D] text-operon-deep dark:text-white shadow-sm border border-operon-mist dark:border-white/10' : 'text-slate-400 dark:text-slate-500 hover:text-operon-deep dark:hover:text-operon-mist'"
+                    :class="view === 'info' ? 'bg-white dark:bg-white/10 text-operon-deep dark:text-white shadow-sm border border-operon-mist dark:border-white/10' : 'text-slate-400 dark:text-slate-500 hover:text-operon-deep dark:hover:text-operon-mist'"
                     class="px-4 py-2 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all flex items-center gap-2">
                     <span class="text-lg">💰</span> Finanças
                 </button>
@@ -29,7 +29,7 @@
 
             <div class="h-8 w-px bg-slate-200 dark:bg-white/10 mx-1"></div>
 
-            <a href="/admin/projects/show?id=<?= $project['id'] ?>" class="group flex items-center px-4 py-2 bg-white dark:bg-[#15191D] border border-slate-200 dark:border-white/10 rounded-lg text-slate-600 dark:text-slate-400 text-xs font-bold uppercase tracking-wider hover:bg-slate-50 dark:hover:bg-white/5 hover:text-indigo-600 dark:hover:text-white transition-all shadow-sm">
+            <a href="/admin/projects/show?id=<?= $project['id'] ?>" class="group flex items-center px-4 py-2 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-lg text-slate-600 dark:text-slate-400 text-xs font-bold uppercase tracking-wider hover:bg-slate-50 dark:hover:bg-white/10 hover:text-indigo-600 dark:hover:text-white transition-all shadow-sm">
                 <svg class="w-3 h-3 mr-2 text-slate-400 group-hover:text-indigo-600 dark:group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
                 Ver Projeto
             </a>
@@ -37,7 +37,7 @@
     </div>
 
     <!-- Main Form -->
-    <form action="/admin/projects/update" method="POST" enctype="multipart/form-data" class="card-apple dark:bg-[#15191D] dark:border-white/5 p-8 space-y-8 animate-fade-in relative overflow-visible">
+    <form action="/admin/projects/update" method="POST" enctype="multipart/form-data" class="card-apple dark:border-white/5 p-8 space-y-8 animate-fade-in relative overflow-visible">
         <input type="hidden" name="id" value="<?= $project['id'] ?>">
         
         <!-- Decorative Background Blur -->
@@ -46,7 +46,7 @@
         <!-- VIEW: CMS (Template) -->
         <div x-show="view === 'cms'" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform translate-x-4" x-transition:enter-end="opacity-100 transform translate-x-0">
             
-            <div class="mb-6 flex items-center gap-2 text-operon-deep dark:text-operon-deep bg-operon-mist dark:bg-operon-mist w-fit px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest border border-operon-mistDark/30">
+            <div class="mb-6 flex items-center gap-2 text-operon-deep bg-operon-mist w-fit px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest border border-operon-mistDark/30">
                 <span>🎨</span> Configuração do Córtex
             </div>
 
@@ -122,7 +122,7 @@
                     <!-- Macro -->
                     <label class="cursor-pointer relative">
                         <input type="radio" name="thalamic_setting" value="macro" x-model="thalamic" class="peer sr-only">
-                        <div class="p-5 rounded-[20px] border-2 border-slate-50 dark:border-white/5 bg-white dark:bg-[#1A1C22] hover:border-operon-mist peer-checked:border-operon-deep dark:peer-checked:border-operon-mist peer-checked:bg-operon-mist/10 dark:peer-checked:bg-operon-mist/5 transition-all h-full flex flex-col items-center text-center group shadow-sm">
+                        <div class="p-5 rounded-[20px] border-2 border-slate-50 dark:border-white/5 bg-white dark:bg-white/5 hover:border-operon-mist peer-checked:border-operon-deep dark:peer-checked:border-operon-mist peer-checked:bg-operon-mist/10 dark:peer-checked:bg-operon-mist/10 transition-all h-full flex flex-col items-center text-center group shadow-sm">
                             <div class="w-12 h-12 rounded-xl bg-slate-50 dark:bg-white/5 text-2xl flex items-center justify-center mb-4 group-hover:bg-operon-mist transition-colors group-hover:scale-110">🔭</div>
                             <span class="block text-sm font-black text-operon-deep dark:text-white mb-2">Macro</span>
                             <span class="block text-[10px] text-slate-500 dark:text-slate-400 font-medium leading-relaxed">Foco apenas em grandes entregas e marcos estratégicos.</span>
@@ -131,7 +131,7 @@
                     <!-- Hybrid -->
                     <label class="cursor-pointer relative">
                         <input type="radio" name="thalamic_setting" value="hybrid" x-model="thalamic" class="peer sr-only">
-                        <div class="p-5 rounded-[20px] border-2 border-slate-50 dark:border-white/5 bg-white dark:bg-[#1A1C22] hover:border-operon-mist peer-checked:border-operon-deep dark:peer-checked:border-operon-mist peer-checked:bg-operon-mist/10 dark:peer-checked:bg-operon-mist/5 transition-all h-full flex flex-col items-center text-center group shadow-sm">
+                        <div class="p-5 rounded-[20px] border-2 border-slate-50 dark:border-white/5 bg-white dark:bg-white/5 hover:border-operon-mist peer-checked:border-operon-deep dark:peer-checked:border-operon-mist peer-checked:bg-operon-mist/10 dark:peer-checked:bg-operon-mist/10 transition-all h-full flex flex-col items-center text-center group shadow-sm">
                             <div class="w-12 h-12 rounded-xl bg-slate-50 dark:bg-white/5 text-2xl flex items-center justify-center mb-4 group-hover:bg-operon-mist transition-colors group-hover:scale-110">⚖️</div>
                             <span class="block text-sm font-black text-operon-deep dark:text-white mb-2">Híbrido</span>
                             <span class="block text-[10px] text-slate-500 dark:text-slate-400 font-medium leading-relaxed">Equilíbrio neural ideal entre técnica e visão de negócio.</span>
@@ -140,7 +140,7 @@
                     <!-- Micro -->
                     <label class="cursor-pointer relative">
                         <input type="radio" name="thalamic_setting" value="micro" x-model="thalamic" class="peer sr-only">
-                        <div class="p-5 rounded-[20px] border-2 border-slate-50 dark:border-white/5 bg-white dark:bg-[#1A1C22] hover:border-operon-mist peer-checked:border-operon-deep dark:peer-checked:border-operon-mist peer-checked:bg-operon-mist/10 dark:peer-checked:bg-operon-mist/5 transition-all h-full flex flex-col items-center text-center group shadow-sm">
+                        <div class="p-5 rounded-[20px] border-2 border-slate-50 dark:border-white/5 bg-white dark:bg-white/5 hover:border-operon-mist peer-checked:border-operon-deep dark:peer-checked:border-operon-mist peer-checked:bg-operon-mist/10 dark:peer-checked:bg-operon-mist/10 transition-all h-full flex flex-col items-center text-center group shadow-sm">
                             <div class="w-12 h-12 rounded-xl bg-slate-50 dark:bg-white/5 text-2xl flex items-center justify-center mb-4 group-hover:bg-operon-mist transition-colors group-hover:scale-110">🔬</div>
                             <span class="block text-sm font-black text-operon-deep dark:text-white mb-2">Micro</span>
                             <span class="block text-[10px] text-slate-500 dark:text-slate-400 font-medium leading-relaxed">Transparência total. Cada pulso técnico é visível ao cliente.</span>
@@ -175,7 +175,7 @@
                 <span>⚡</span> Performance Neural (KPIs)
             </div>
 
-            <div class="space-y-6 bg-slate-50 p-6 rounded-2xl border border-slate-100">
+            <div class="space-y-6 bg-slate-50 dark:bg-white/5 p-6 rounded-2xl border border-slate-100 dark:border-white/5">
                 
 
 
@@ -186,7 +186,7 @@
                         <!-- On Track -->
                         <label class="cursor-pointer relative">
                             <input type="radio" name="health_status" value="on_track" x-model="health" class="peer sr-only">
-                            <div class="p-3 rounded-xl border-2 border-slate-50 bg-white hover:border-emerald-200 peer-checked:border-emerald-500 peer-checked:bg-emerald-50 peer-checked:text-emerald-700 transition-all flex items-center justify-center gap-2 font-black text-xs uppercase tracking-wider">
+                            <div class="p-3 rounded-xl border-2 border-slate-50 dark:border-white/5 bg-white dark:bg-white/5 hover:border-emerald-200 dark:hover:border-emerald-500/50 peer-checked:border-emerald-500 peer-checked:bg-emerald-50 dark:peer-checked:bg-emerald-500/20 peer-checked:text-emerald-700 dark:peer-checked:text-emerald-400 transition-all flex items-center justify-center gap-2 font-black text-xs uppercase tracking-wider">
                                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Ok
                             </div>
                         </label>

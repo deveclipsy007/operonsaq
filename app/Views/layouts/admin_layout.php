@@ -4,7 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Operon Cortex</title>
-    <link href="/assets/css/style.css" rel="stylesheet">
+    <?php
+    // Determine CSS Path based on execution context
+    $cssPath = '/assets/css/style.css';
+    if (file_exists(__DIR__ . '/../../public/assets/css/style.css') && !file_exists($_SERVER['DOCUMENT_ROOT'] . '/assets/css/style.css')) {
+        $cssPath = '/public/assets/css/style.css';
+    }
+    ?>
+    <link href="<?= $cssPath ?>?v=<?= time() ?>" rel="stylesheet">
     <!-- Alpine.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
     <!-- Fonts -->
@@ -12,6 +19,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* CRITICAL CSS FALLBACK */
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .bg-operon-deep { background-color: #0A2F2F !important; }
+        .text-operon-deep { color: #0A2F2F !important; }
+        .bg-operon-mist { background-color: #D4DFD1 !important; }
+        .text-white { color: #ffffff !important; }
+        .rounded-xl { border-radius: 0.75rem !important; }
+        .flex { display: flex; }
+        .hidden { display: none; }
+        .lg\:hidden { display: none; }
+        @media (min-width: 1024px) {
+            .lg\:block { display: block; }
+            .lg\:flex { display: flex; }
+            .lg\:hidden { display: none !important; }
+        }
+        /* Ensure layout structure even if Tailwind fails */
+        aside { width: 16rem; }
+        header { height: 5rem; }
+    </style>
     <script>
         // Simple Theme Detection
         if (localStorage.getItem('admin_theme') === 'dark' || (!('admin_theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -56,12 +83,21 @@
         
         /* Dark Mode Basis */
         /* Dark Mode Basis */
+        body { background-color: #FBFBFC; color: #1A1C1E; transition: background-color 0.3s ease, color 0.3s ease; }
+        .card-apple { 
+            background-color: #ffffff; 
+            border-radius: 20px; 
+            border: 1px solid #EBEFF2; 
+            box-shadow: 0 4px 12px rgba(10, 47, 47, 0.04);
+            transition: all 0.3s ease;
+        }
+
+        /* Dark Mode Basis */
         .dark body { background-color: #0B0E11; color: #E2E8F0; }
-        .dark .card-apple { background-color: #15191D; border-color: rgba(255,255,255,0.05); }
+        .dark .card-apple { background-color: #15191D; border-color: rgba(255,255,255,0.05); box-shadow: 0 4px 24px rgba(0,0,0,0.2); }
+        .dark .sidebar-item-active { background-color: rgba(212, 223, 209, 0.05); color: #D4DFD1; }
         .dark .sidebar-item-active { background-color: rgba(212, 223, 209, 0.05); color: #D4DFD1; }
         
-        body { background-color: #FBFBFC; color: #1A1C1E; transition: background-color 0.3s ease, color 0.3s ease; }
-        .card-apple { @apply bg-white rounded-[20px] border border-operon-slate shadow-apple; }
         .animate-fade-in { animation: fadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
         
@@ -76,6 +112,7 @@
 
     <!-- Mobile Sidebar Backdrop -->
     <div x-show="sidebarOpen" 
+         style="display: none;"
          x-transition:enter="transition-opacity ease-linear duration-300"
          x-transition:enter-start="opacity-0"
          x-transition:enter-end="opacity-100"

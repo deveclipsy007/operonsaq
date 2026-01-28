@@ -59,7 +59,7 @@
                 <div class="space-y-4">
                     <div>
                         <span class="block text-xs font-bold text-slate-400 uppercase">Valor do Projeto</span>
-                        <span class="text-2xl font-black text-emerald-600">R$ <?= number_format($project['project_value'], 2, ',', '.') ?></span>
+                        <span class="text-2xl font-black text-emerald-600">R$ <?= number_format((float)($project['project_value'] ?? 0), 2, ',', '.') ?></span>
                     </div>
                     <div class="grid grid-cols-2 gap-4">
                         <div>

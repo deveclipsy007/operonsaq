@@ -97,16 +97,16 @@ class Project {
     public function calculateProgress($projectId) {
         $events = $this->getEvents($projectId);
         
-        // Filter only task-type events (not warnings/docs/articles)
-        $tasks = array_filter($events, fn($e) => in_array($e['type'], ['MICRO', 'MACRO', 'CHECKPOINT']));
+        // Filter only CHECKPOINT events for progress
+        $tasks = array_filter($events, fn($e) => $e['type'] === 'CHECKPOINT');
         
         $total = count($tasks);
         if ($total === 0) return 0;
         
         $done = count(array_filter($tasks, fn($e) => $e['status'] === 'done'));
+        // In Progress checkpoints count as 50%
         $inProgress = count(array_filter($tasks, fn($e) => $e['status'] === 'in_progress'));
         
-        // In Progress counts as 50% (0.5)
         $weightedScore = $done + ($inProgress * 0.5);
         
         return round(($weightedScore / $total) * 100);
@@ -143,5 +143,9 @@ class Project {
         $stmt->execute([':status' => $newStatus, ':completed_at' => $completedAt, ':id' => $id]);
         
         return $newStatus;
+    }
+
+    public function getTimeline($projectId) {
+        return $this->getEvents($projectId);
     }
 }
