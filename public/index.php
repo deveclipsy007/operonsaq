@@ -124,16 +124,6 @@ $router->get('/test-db', function() {
     }
 });
 
-// Diagnóstico de configuração (protegido por chave secreta)
-$router->get('/diagnose', function() {
-    $key = $_GET['key'] ?? '';
-    if ($key !== 'operon2024!diag') {
-        http_response_code(403);
-        die('Acesso negado');
-    }
-    header('Content-Type: application/json');
-    echo json_encode(Database::diagnose(), JSON_PRETTY_PRINT);
-});
 
 // Admin Route
 $router->get('/admin', [AdminController::class, 'index']);
