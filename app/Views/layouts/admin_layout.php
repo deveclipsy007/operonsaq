@@ -352,7 +352,7 @@
     <!-- Main Content -->
     <div class="lg:ml-64 min-h-screen flex flex-col bg-[#0B0E11]">
         <!-- Topbar -->
-        <header class="h-20 bg-[#0B0E11]/90 backdrop-blur-xl border-b border-white/5 flex items-center justify-between px-8 sticky top-0 z-40">
+        <header class="h-20 bg-[#0B0E11] backdrop-blur-xl border-b border-white/5 flex items-center justify-between px-8 relative z-40">
             <button @click="sidebarOpen = true" class="lg:hidden p-2 text-[#9CA3AF]">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>

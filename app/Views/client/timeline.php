@@ -54,8 +54,6 @@ class="pb-24">
         <div class="h-36 sm:h-48 md:h-64 w-full bg-cover bg-center relative -mb-12 sm:-mb-16 md:-mb-20" style="background-image: url('<?= $project['cover_url'] ?>')">
             <div class="absolute inset-0 bg-gradient-to-t from-[#F4F7F2] to-transparent"></div>
         </div>
-    <?php else: ?>
-        <div class="h-16 sm:h-24 md:h-32 w-full bg-gradient-to-r from-operon-deep/10 to-operon-mist/30 -mb-8 sm:-mb-12 md:-mb-16"></div>
     <?php endif; ?>
 
     <!-- Top Navigation / Hero -->
