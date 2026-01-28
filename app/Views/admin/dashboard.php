@@ -1,23 +1,23 @@
 <!-- Page Header -->
-<div class="mb-8 flex items-end justify-between">
+<div class="mb-6 sm:mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
     <div>
-        <h1 class="text-3xl font-black tracking-tight text-operon-deep dark:text-white">Dashboard</h1>
+        <h1 class="text-2xl sm:text-3xl font-black tracking-tight text-operon-deep dark:text-white">Dashboard</h1>
         <p class="mt-1 text-sm text-slate-500 dark:text-slate-400 font-medium tracking-tight">Homeostase Neural do Sistema Operon.</p>
     </div>
-    <div class="flex gap-3">
-        <a href="/admin/clients/create" class="inline-flex items-center px-4 py-2 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl text-sm font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/10 transition-all">
-            <svg class="mr-2 h-4 w-4 text-slate-400 dark:text-slate-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z" /></svg>
+    <div class="flex flex-wrap gap-2 sm:gap-3">
+        <a href="/admin/clients/create" class="inline-flex items-center px-3 sm:px-4 py-2 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/10 transition-all">
+            <svg class="mr-1.5 sm:mr-2 h-4 w-4 text-slate-400 dark:text-slate-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z" /></svg>
             Novo Cliente
         </a>
-        <a href="/admin/projects/create" class="inline-flex items-center px-4 py-2 bg-operon-deep text-white rounded-xl text-xs font-black uppercase tracking-widest hover:bg-black transition-all shadow-premium border border-white/5">
-            <svg class="mr-2 h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+        <a href="/admin/projects/create" class="inline-flex items-center px-3 sm:px-4 py-2 bg-operon-deep text-white rounded-xl text-xs font-black uppercase tracking-widest hover:bg-black transition-all shadow-premium border border-white/5">
+            <svg class="mr-1.5 sm:mr-2 h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
             Novo Projeto
         </a>
     </div>
 </div>
 
 <!-- Stats Grid -->
-<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 mb-10">
+<div class="grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4 mb-8 sm:mb-10">
     <!-- Stat 1 -->
     <div class="card-apple p-6 border-l-4 border-l-operon-deep relative overflow-hidden group">
         <div class="absolute right-0 top-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity text-operon-deep dark:text-white">

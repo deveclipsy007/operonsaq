@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="antialiased bg-[#FBFBFC]">
+<html lang="pt-BR" class="antialiased bg-[#F4F7F2]">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,8 +50,8 @@
         /* Dark Mode Basis */
         /* Dark Mode CSS removed/disabled for client */
         
-        body { background-color: #FBFBFC; color: #1A1C1E; transition: background-color 0.3s ease, color 0.3s ease; }
-        .ios-card { @apply bg-white rounded-[20px] border border-slate-100 shadow-apple transition-all duration-300; }
+        body { background-color: #F4F7F2; color: #1A1C1E; transition: background-color 0.3s ease, color 0.3s ease; }
+        .ios-card { @apply bg-white/90 backdrop-blur-sm rounded-[20px] border border-slate-100/80 shadow-apple transition-all duration-300; }
         .animate-fade-in { animation: fadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
         
@@ -77,7 +77,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-<body class="font-sans text-operon-ink bg-operon-paper transition-colors duration-300 relative">
+<body class="font-sans text-operon-ink bg-[#F4F7F2] transition-colors duration-300 relative">
     <!-- Neural Background Canvas -->
     <canvas id="neural-bg" class="fixed inset-0 pointer-events-none z-0"></canvas>
 
@@ -141,8 +141,8 @@
 
             draw() {
                 this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-                this.ctx.fillStyle = 'rgba(10, 47, 47, 0.15)';
-                this.ctx.strokeStyle = 'rgba(10, 47, 47, 0.1)';
+                this.ctx.fillStyle = 'rgba(10, 47, 47, 0.04)';
+                this.ctx.strokeStyle = 'rgba(10, 47, 47, 0.025)';
 
                 for (let i = 0; i < this.points.length; i++) {
                     let p1 = this.points[i];

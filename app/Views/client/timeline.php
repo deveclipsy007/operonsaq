@@ -51,19 +51,19 @@ class="pb-24">
 
     <!-- Project Cover Image -->
     <?php if (!empty($project['cover_url'])): ?>
-        <div class="h-48 md:h-64 w-full bg-cover bg-center relative -mb-16 md:-mb-20" style="background-image: url('<?= $project['cover_url'] ?>')">
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-50 dark:from-[#0D1517] to-transparent"></div>
+        <div class="h-36 sm:h-48 md:h-64 w-full bg-cover bg-center relative -mb-12 sm:-mb-16 md:-mb-20" style="background-image: url('<?= $project['cover_url'] ?>')">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#F4F7F2] to-transparent"></div>
         </div>
     <?php else: ?>
-        <div class="h-24 md:h-32 w-full bg-gradient-to-r from-operon-deep to-operon-mistDark opacity-10 -mb-12 md:-mb-16"></div>
+        <div class="h-16 sm:h-24 md:h-32 w-full bg-gradient-to-r from-operon-deep/10 to-operon-mist/30 -mb-8 sm:-mb-12 md:-mb-16"></div>
     <?php endif; ?>
 
     <!-- Top Navigation / Hero -->
-    <header class="pt-8 pb-6 px-4 md:px-8 max-w-7xl mx-auto relative z-10">
-        <div class="flex flex-col md:flex-row md:items-start justify-between gap-8">
+    <header class="pt-6 sm:pt-8 pb-6 sm:pb-8 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto relative z-10">
+        <div class="flex flex-col lg:flex-row lg:items-start justify-between gap-6 sm:gap-8">
             
             <!-- Project Identity -->
-            <div class="flex-1">
+            <div class="flex-1 space-y-4 sm:space-y-0">
                 <?php if (!empty($project['featured_message'])): ?>
                     <div class="mb-6 animate-fade-in">
                         <span class="inline-flex items-center gap-2.5 px-4 py-1.5 bg-operon-mist/20 border border-operon-mist/40 rounded-full text-[10px] font-semibold text-operon-deep uppercase tracking-[0.2em]">
@@ -123,10 +123,10 @@ class="pb-24">
                 <?php endif; ?>
 
                 <!-- KPI Grid -->
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mt-8 sm:mt-10">
                     
                     <!-- Progress KPI -->
-                    <div class="ios-card p-5 flex flex-col justify-between h-32 relative group overflow-hidden border border-white/40 dark:border-white/5 bg-gradient-to-br from-white to-slate-50 dark:from-white/5 dark:to-white/[0.02]">
+                    <div class="ios-card p-5 sm:p-6 flex flex-col justify-between min-h-[140px] sm:h-32 relative group overflow-hidden border border-white/40 bg-gradient-to-br from-white to-slate-50">
                          <div class="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
                             <svg class="w-12 h-12 text-operon-deep dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
                         </div>
@@ -145,7 +145,7 @@ class="pb-24">
                     </div>
 
                     <!-- Days KPI -->
-                    <div class="ios-card p-5 flex flex-col justify-between h-32 relative group overflow-hidden border border-white/40 dark:border-white/5 bg-gradient-to-br from-white to-slate-50 dark:from-white/5 dark:to-white/[0.02]">
+                    <div class="ios-card p-5 sm:p-6 flex flex-col justify-between min-h-[140px] sm:h-32 relative group overflow-hidden border border-white/40 bg-gradient-to-br from-white to-slate-50">
                         <div class="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
                              <svg class="w-12 h-12 text-operon-mistDark dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                         </div>
@@ -162,7 +162,7 @@ class="pb-24">
                     </div>
 
                     <!-- Tasks KPI -->
-                    <div class="ios-card p-5 flex flex-col justify-between h-32 relative group overflow-hidden border border-white/40 dark:border-white/5 bg-gradient-to-br from-white to-slate-50 dark:from-white/5 dark:to-white/[0.02]">
+                    <div class="ios-card p-5 sm:p-6 flex flex-col justify-between min-h-[140px] sm:h-32 relative group overflow-hidden border border-white/40 bg-gradient-to-br from-white to-slate-50">
                          <div class="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
                            <svg class="w-12 h-12 text-slate-400 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
                         </div>
@@ -188,7 +188,7 @@ class="pb-24">
                             default => ['text' => \App\Core\I18n::t('health.on_track'), 'color' => 'text-emerald-600 dark:text-emerald-400', 'bg' => 'bg-emerald-500', 'soft_bg' => 'bg-emerald-50 dark:bg-emerald-500/20']
                         };
                     ?>
-                    <div class="ios-card p-5 flex flex-col justify-between h-32 relative group overflow-hidden border border-white/40 dark:border-white/5 bg-gradient-to-br from-white to-slate-50 dark:from-white/5 dark:to-white/[0.02]">
+                    <div class="ios-card p-5 sm:p-6 flex flex-col justify-between min-h-[140px] sm:h-32 relative group overflow-hidden border border-white/40 bg-gradient-to-br from-white to-slate-50">
                          <div class="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
                              <svg class="w-12 h-12 text-operon-deep dark:text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                         </div>
@@ -307,10 +307,10 @@ class="pb-24">
     </div>
 
     <!-- Main Content Area -->
-    <div class="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-10">
         
         <!-- Timeline Column -->
-        <div class="lg:col-span-8">
+        <div class="lg:col-span-8 space-y-6">
             
             <!-- NEXT ACTION WIDGET -->
             <?php if (!empty($project['next_action'])): ?>
