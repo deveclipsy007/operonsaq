@@ -108,13 +108,22 @@
                 </div>
 
                 <!-- Project Cover Image -->
-                <div class="group" x-data="{ coverName: null, coverPreview: '<?= $project['cover_url'] ?? '' ?>' }">
+                <div class="group" x-data="{ 
+                    coverName: null, 
+                    coverPreview: '<?= htmlspecialchars($project['cover_url'] ?? '') ?>',
+                    removeCover: false,
+                    originalCover: '<?= htmlspecialchars($project['cover_url'] ?? '') ?>'
+                }">
                     <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">📸 Imagem de Capa do Projeto</label>
+                    
+                    <!-- Campo hidden para indicar remoção da capa -->
+                    <input type="hidden" name="remove_cover" x-bind:value="removeCover ? '1' : '0'">
+                    
                     <div class="flex flex-col md:flex-row gap-4 items-start">
                         <template x-if="coverPreview">
                             <div class="relative w-full md:w-48 h-28 rounded-xl overflow-hidden border border-slate-200 dark:border-white/10 shadow-sm">
                                 <img :src="coverPreview" class="w-full h-full object-cover">
-                                <button type="button" @click="coverPreview = ''; coverName = ''" class="absolute top-1 right-1 bg-black/50 text-white p-1 rounded-full hover:bg-black transition-colors">
+                                <button type="button" @click="coverPreview = ''; coverName = null; removeCover = true" class="absolute top-1 right-1 bg-black/50 text-white p-1 rounded-full hover:bg-black transition-colors">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                                 </button>
                             </div>
@@ -129,7 +138,7 @@
                                      <p class="text-[10px] font-black text-operon-deep dark:text-operon-mist" x-text="coverName"></p>
                                 </div>
                             </div>
-                            <input type="file" name="cover_image" class="hidden" @change="coverName = $event.target.files[0].name; coverPreview = URL.createObjectURL($event.target.files[0])" accept="image/*" />
+                            <input type="file" name="cover_image" class="hidden" @change="coverName = $event.target.files[0].name; coverPreview = URL.createObjectURL($event.target.files[0]); removeCover = false" accept="image/*" />
                         </label>
                     </div>
                     <p class="text-[9px] text-slate-400 mt-2">Recomendado: 1200x400px ou similar para melhor aspecto.</p>

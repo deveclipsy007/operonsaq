@@ -239,16 +239,15 @@ class AdminController extends Controller {
         }
 
         // --- Cover Image Upload Handling for Update ---
-        if (!empty($_FILES['cover_image']['name'])) {
-            // Dynamic Path Detection
-            $baseDir = __DIR__ . '/../../';
-            $publicUploads = $baseDir . 'public/uploads/covers/';
-            $rootUploads = $baseDir . 'uploads/covers/';
+        if (isset($_POST['remove_cover']) && $_POST['remove_cover'] === '1') {
+            $data['cover_url'] = null;
+        }
 
-            // Use public/ if exists (Local), otherwise root (Hostinger Flat)
-            $uploadDir = is_dir($baseDir . 'public') ? $publicUploads : $rootUploads;
-            
-            if (!is_dir($uploadDir)) mkdir($uploadDir, 0777, true);
+        if (!empty($_FILES['cover_image']['name'])) {
+            $uploadDir = __DIR__ . '/../../public/uploads/covers/';
+            if (!is_dir($uploadDir)) {
+                mkdir($uploadDir, 0777, true);
+            }
             
             $fileName = time() . '_' . basename($_FILES['cover_image']['name']);
             $targetPath = $uploadDir . $fileName;
