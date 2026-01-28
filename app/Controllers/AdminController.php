@@ -9,7 +9,7 @@ class AdminController extends Controller {
 
     /**
      * Construtor que verifica autenticação em todas as rotas do admin
-     * Exceção: login e authenticate
+     * TODAS as rotas exigem login, exceto /admin/login
      */
     public function __construct() {
         // Inicia a sessão se ainda não estiver iniciada
@@ -17,26 +17,28 @@ class AdminController extends Controller {
             session_start();
         }
         
-        // Rotas que não precisam de autenticação
-        $publicRoutes = ['login', 'authenticate'];
+        // Obtém a URI limpa (sem query strings)
+        $uri = parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH);
+        $uri = rtrim($uri, '/'); // Remove trailing slash
         
-        // Detecta qual método está sendo chamado baseado na URL
-        $uri = $_SERVER['REQUEST_URI'] ?? '';
-        $isPublicRoute = false;
+        // Rotas públicas que NÃO precisam de autenticação
+        $publicRoutes = [
+            '/admin/login',
+        ];
         
-        foreach ($publicRoutes as $route) {
-            if (strpos($uri, '/admin/' . $route) !== false || $uri === '/admin/login') {
-                $isPublicRoute = true;
-                break;
+        // Verifica se é uma rota pública
+        $isPublicRoute = in_array($uri, $publicRoutes);
+        
+        // Se NÃO for rota pública E NÃO estiver logado -> redireciona para login
+        if (!$isPublicRoute && empty($_SESSION['admin_logged_in'])) {
+            // Evita redirect loop
+            if ($uri !== '/admin/login') {
+                header("Location: /admin/login");
+                exit;
             }
         }
-        
-        // Se não for rota pública e não estiver logado, redireciona para login
-        if (!$isPublicRoute && empty($_SESSION['admin_logged_in'])) {
-            header("Location: /admin/login");
-            exit;
-        }
     }
+
 
     public function index() {
         $projectModel = new Project();

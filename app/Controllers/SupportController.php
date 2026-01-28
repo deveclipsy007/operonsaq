@@ -8,7 +8,23 @@ use App\Models\Project;
 
 class SupportController extends Controller {
 
+    /**
+     * Construtor que verifica autenticação para todas as rotas de support do admin
+     */
+    public function __construct() {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        
+        // Verifica se está logado como admin
+        if (empty($_SESSION['admin_logged_in'])) {
+            header("Location: /admin/login");
+            exit;
+        }
+    }
+
     // --- Admin Views ---
+
 
     public function index() {
         if (!isset($_SESSION['admin_logged_in'])) {
