@@ -83,7 +83,7 @@
                 </div>
 
                 <div class="group">
-                    <label class="block text-xs font-bold text-slate-400 uppercase mb-1 group-focus-within:text-indigo-500 dark:group-focus-within:text-operon-mist transition-colors">Descrição</label>
+                    <label class="block text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1 group-focus-within:text-indigo-500 dark:group-focus-within:text-operon-mist transition-colors">Descrição</label>
                     <textarea name="description" rows="3" 
                         class="w-full text-sm text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-white/5 rounded-lg border-0 focus:ring-2 focus:ring-indigo-100 dark:focus:ring-white/10 resize-none p-4 transition-shadow placeholder-slate-300 dark:placeholder-slate-600 font-medium" 
                         placeholder="Descreva o escopo e objetivos principais..."><?= htmlspecialchars($project['description']) ?></textarea>
@@ -152,12 +152,12 @@
             <!-- Dates -->
             <div class="grid grid-cols-2 gap-6 pt-6">
                 <div>
-                    <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Início</label>
+                    <label class="block text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">Início</label>
                     <input type="date" name="start_date" value="<?= $project['start_date'] ?>" 
                         class="w-full bg-slate-50 dark:bg-white/5 border-0 rounded-lg text-slate-800 dark:text-white font-bold focus:ring-2 focus:ring-indigo-100 dark:focus:ring-white/10 text-sm h-12 px-3">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Deadline Estimado</label>
+                    <label class="block text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">Deadline Estimado</label>
                     <input type="date" name="deadline" value="<?= $project['deadline'] ?>"
                         class="w-full bg-slate-50 dark:bg-white/5 border-0 rounded-lg text-slate-800 dark:text-white font-bold focus:ring-2 focus:ring-indigo-100 dark:focus:ring-white/10 text-sm h-12 px-3">
                 </div>
@@ -181,7 +181,7 @@
 
             <!-- Health Status -->
                 <div class="group">
-                    <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-3">Saúde do Projeto</label>
+                    <label class="block text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-3">Saúde do Projeto</label>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-3" x-data="{ health: '<?= $project['health_status'] ?? 'on_track' ?>' }">
                         <!-- On Track -->
                         <label class="cursor-pointer relative">
@@ -209,7 +209,7 @@
 
                 <!-- Custom Progress -->
                 <div class="group" x-data="{ progress: '<?= $project['custom_progress'] ?? '' ?>' }">
-                    <label class="flex justify-between text-[10px] font-black text-slate-400 uppercase tracking-widest mb-3">
+                    <label class="flex justify-between text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-3">
                         <span>Progresso Neural (%)</span>
                         <span x-text="progress ? progress + '%' : 'Automático'" class="text-operon-deep"></span>
                     </label>
@@ -221,7 +221,7 @@
 
                 <!-- Deliveries -->
                 <div class="group">
-                    <label class="block text-xs font-bold text-slate-400 uppercase mb-2">Entregas (Completed / Total)</label>
+                    <label class="block text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-2">Entregas (Completed / Total)</label>
                     <div class="flex items-center gap-2">
                         <input type="number" name="custom_completed_items" value="<?= $project['custom_completed_items'] ?>" placeholder="Feito" class="flex-1 bg-white border border-slate-200 rounded-lg font-bold text-sm h-10 px-3 focus:ring-2 focus:ring-indigo-100">
                         <span class="text-slate-300 font-bold">/</span>
@@ -236,7 +236,7 @@
 
             <!-- Contract Upload -->
             <div class="group">
-                <label class="block text-xs font-bold text-slate-400 uppercase mb-3">Contrato Assinado (.pdf)</label>
+                <label class="block text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-3">Contrato Assinado (.pdf)</label>
                 
                 <?php if (!empty($project['contract_url'])): ?>
                     <div class="flex items-center gap-3 bg-emerald-50 border border-emerald-100 p-3 rounded-lg mb-4">
@@ -266,7 +266,7 @@
             </div>
 
             <div class="mt-6 group">
-                <label class="block text-xs font-bold text-slate-400 uppercase mb-1 group-focus-within:text-emerald-500 transition-colors">Gerente do Projeto</label>
+                <label class="block text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1 group-focus-within:text-emerald-500 transition-colors">Gerente do Projeto</label>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <input type="text" name="manager_name" value="<?= htmlspecialchars($project['manager_name'] ?? '') ?>" placeholder="Nome do Gerente" 
                         class="w-full bg-slate-50 border-0 rounded-lg text-slate-800 font-bold focus:ring-2 focus:ring-emerald-100 text-sm h-12 px-3">
@@ -276,7 +276,7 @@
             </div>
 
             <div class="mt-6 group">
-                <label class="block text-xs font-bold text-slate-400 uppercase mb-1 group-focus-within:text-emerald-500 transition-colors">Links Externos</label>
+                <label class="block text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1 group-focus-within:text-emerald-500 transition-colors">Links Externos</label>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                      <input type="url" name="github_url" value="<?= htmlspecialchars($project['github_url'] ?? '') ?>" placeholder="Repositório GitHub" 
                         class="w-full bg-slate-50 border-0 rounded-lg text-slate-800 font-bold focus:ring-2 focus:ring-emerald-100 text-sm h-12 px-3">
@@ -288,7 +288,7 @@
             </div>
 
             <div class="mt-6 group">
-                <label class="block text-xs font-bold text-slate-400 uppercase mb-1 group-focus-within:text-emerald-500 transition-colors">Anotações Gerais</label>
+                <label class="block text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1 group-focus-within:text-emerald-500 transition-colors">Anotações Gerais</label>
                 <textarea name="notes" rows="4" 
                     class="w-full text-sm text-slate-600 bg-slate-50 rounded-lg border-0 focus:ring-2 focus:ring-emerald-100 resize-none p-4 transition-shadow placeholder-slate-300 font-medium" 
                     placeholder="Observações internas sobre o projeto, cliente ou negociação..."><?= htmlspecialchars($project['notes']) ?></textarea>

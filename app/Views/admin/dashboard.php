@@ -9,8 +9,8 @@
             <svg class="mr-2 h-4 w-4 text-slate-400 dark:text-slate-500" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7.5v3m0 0v3m0-3h3m-3 0h-3m-2.25-4.125a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zM4 19.235v-.11a6.375 6.375 0 0112.75 0v.109A12.318 12.318 0 0110.374 21c-2.331 0-4.512-.645-6.374-1.766z" /></svg>
             Novo Cliente
         </a>
-        <a href="/admin/projects/create" class="inline-flex items-center px-4 py-2 bg-operon-deep text-white rounded-xl text-sm font-bold hover:bg-black transition-all shadow-premium">
-            <svg class="mr-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+        <a href="/admin/projects/create" class="inline-flex items-center px-4 py-2 bg-operon-deep text-white rounded-xl text-xs font-black uppercase tracking-widest hover:bg-black transition-all shadow-premium border border-white/5">
+            <svg class="mr-2 h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
             Novo Projeto
         </a>
     </div>
@@ -23,7 +23,7 @@
         <div class="absolute right-0 top-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity text-operon-deep dark:text-white">
             <svg class="h-16 w-16" fill="currentColor" viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
         </div>
-        <dt class="truncate text-[10px] font-black uppercase tracking-wider text-slate-400 dark:text-slate-500">Total de Projetos</dt>
+        <dt class="truncate text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-500">Total de Projetos</dt>
         <dd class="mt-2 text-3xl font-black tracking-tight text-operon-deep dark:text-white"><?= count($projects) ?></dd>
     </div>
 
@@ -32,7 +32,7 @@
         <div class="absolute right-0 top-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity text-operon-mistDark dark:text-operon-mist">
             <svg class="h-16 w-16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
         </div>
-        <dt class="truncate text-[10px] font-black uppercase tracking-wider text-slate-400 dark:text-slate-500">Projetos Ativos</dt>
+        <dt class="truncate text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-500">Projetos Ativos</dt>
         <dd class="mt-2 text-3xl font-black tracking-tight text-operon-deep dark:text-white">
             <?= count(array_filter($projects, fn($p) => $p['status'] === 'active')) ?>
         </dd>
@@ -43,7 +43,7 @@
         <div class="absolute right-0 top-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity text-slate-400 dark:text-slate-500">
             <svg class="h-16 w-16" fill="currentColor" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
         </div>
-        <dt class="truncate text-[10px] font-black uppercase tracking-wider text-slate-400 dark:text-slate-500">Horas Neural</dt>
+        <dt class="truncate text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-500">Horas Neural</dt>
         <dd class="mt-2 text-3xl font-black tracking-tight text-operon-deep dark:text-white">128h</dd>
     </div>
 </div>

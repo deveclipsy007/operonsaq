@@ -59,7 +59,7 @@
 <?php else: ?>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <?php foreach ($projects as $project): ?>
-            <div class="card-apple p-6 border-l-4 border-l-operon-deep hover:shadow-premium hover:border-operon-mist transition-all duration-300 group flex flex-col cursor-pointer relative"
+            <div class="card-apple p-6 border-l-4 border-l-operon-deep hover:shadow-premium hover:border-operon-mist transition-all duration-300 group flex flex-col cursor-pointer relative bg-white dark:bg-[#15191D] dark:border-white/5 dark:hover:border-operon-mist"
                  onclick="window.location='/admin/projects/show?id=<?= $project['id'] ?>'">
                 
                 <div class="absolute top-4 right-4">
@@ -68,13 +68,13 @@
                             Ativo
                         </span>
                     <?php else: ?>
-                         <span class="text-[10px] font-black text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md uppercase tracking-wider border border-slate-200">
+                         <span class="text-[10px] font-black text-slate-500 bg-slate-100 dark:bg-white/10 dark:text-slate-400 px-2 py-0.5 rounded-md uppercase tracking-wider border border-slate-200 dark:border-white/5">
                             <?= ucfirst($project['status']) ?>
                         </span>
                     <?php endif; ?>
                 </div>
 
-                <div class="w-12 h-12 rounded-xl bg-operon-mist text-operon-deep flex items-center justify-center font-black text-xs mb-4 group-hover:bg-operon-deep group-hover:text-white transition-all shadow-sm border border-operon-mistDark/30">
+                <div class="w-12 h-12 rounded-xl bg-operon-mist text-operon-deep flex items-center justify-center font-black text-xs mb-4 group-hover:bg-operon-deep group-hover:text-white dark:group-hover:bg-operon-mist dark:group-hover:text-operon-deep transition-all shadow-sm border border-operon-mistDark/30">
                     <?= strtoupper(substr($project['name'], 0, 2)) ?>
                 </div>
 
@@ -86,9 +86,9 @@
                     <?= htmlspecialchars($project['description'] ?? 'Sem descrição neural.') ?>
                 </p>
 
-                <div class="border-t border-slate-50 pt-4 flex items-center justify-between text-[10px] text-slate-400 font-black uppercase tracking-wider">
+                <div class="border-t border-slate-50 dark:border-white/5 pt-4 flex items-center justify-between text-[10px] text-slate-400 dark:text-slate-500 font-black uppercase tracking-wider">
                     <span>Iniciado: <?= date('d/m/y', strtotime($project['created_at'])) ?></span>
-                    <span class="group-hover:translate-x-1 transition-transform text-operon-deep flex items-center gap-1">
+                    <span class="group-hover:translate-x-1 transition-transform text-operon-deep dark:text-operon-mist flex items-center gap-1">
                         Gerenciar <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </span>
                 </div>

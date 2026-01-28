@@ -53,7 +53,7 @@
             <!-- Client & Name -->
             <div class="space-y-6">
                 <div class="group">
-                    <label class="block text-xs font-bold text-slate-400 uppercase mb-1">Cliente</label>
+                    <label class="block text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-2">Cliente</label>
                     <div class="relative">
                         <select name="client_id" required class="w-full bg-slate-50 dark:bg-white/5 border-0 border-b-2 border-slate-200 dark:border-white/10 focus:border-indigo-500 focus:ring-0 text-slate-800 dark:text-white font-bold text-lg py-2 pl-3 pr-10 transition-colors cursor-pointer appearance-none rounded-t-lg">
                             <option value="" disabled selected class="dark:bg-slate-900">Selecione um cliente...</option>
@@ -70,20 +70,20 @@
                 <div class="group">
                     <label class="block text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-2 group-focus-within:text-operon-deep dark:group-focus-within:text-operon-mist transition-colors">Nome do Projeto</label>
                     <input type="text" name="name" required placeholder="Ex: Redesign Neural 2.0" 
-                        class="w-full text-3xl font-black border-0 border-b-2 border-slate-100 dark:border-white/10 focus:border-operon-deep dark:focus:border-operon-mist focus:ring-0 px-0 bg-transparent placeholder-slate-200 dark:placeholder-white/5 transition-colors text-operon-deep dark:text-white tracking-tight">
+                        class="w-full text-3xl font-black border-0 border-b-2 border-slate-100 dark:border-white/10 focus:border-operon-deep dark:focus:border-operon-mist focus:ring-0 px-0 bg-transparent placeholder-slate-200 dark:placeholder-slate-700 transition-colors text-operon-deep dark:text-white tracking-tight">
                 </div>
 
                 <div class="group">
                     <label class="block text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-2 group-focus-within:text-operon-deep dark:group-focus-within:text-operon-mist transition-colors">Descrição</label>
                     <textarea name="description" rows="3" 
-                        class="w-full text-sm text-slate-600 dark:text-slate-400 bg-white dark:bg-white/5 border border-operon-mist dark:border-white/10 rounded-xl focus:ring-2 focus:ring-operon-mist/50 resize-none p-4 transition-shadow placeholder-slate-300 dark:placeholder-slate-600 font-medium shadow-sm" 
+                        class="w-full text-sm text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-white/5 rounded-lg border-0 focus:ring-2 focus:ring-indigo-100 dark:focus:ring-white/10 resize-none p-4 transition-shadow placeholder-slate-300 dark:placeholder-slate-600 font-medium" 
                         placeholder="Descreva o escopo e objetivos principais..."></textarea>
                 </div>
 
                 <div class="group">
                     <label class="block text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-2 group-focus-within:text-operon-deep dark:group-focus-within:text-operon-mist transition-colors">Mensagem de Destaque (Cortex Top)</label>
                     <input type="text" name="featured_message" 
-                        class="w-full text-lg font-bold border-0 border-b border-slate-100 dark:border-white/10 focus:border-operon-deep dark:focus:border-operon-mist focus:ring-0 px-0 bg-transparent placeholder-slate-200 dark:placeholder-white/5 transition-colors text-operon-deep dark:text-white tracking-tight"
+                        class="w-full text-lg font-bold border-0 border-b border-slate-100 dark:border-white/10 focus:border-operon-deep dark:focus:border-operon-mist focus:ring-0 px-0 bg-transparent placeholder-slate-200 dark:placeholder-slate-700 transition-colors text-operon-deep dark:text-white tracking-tight"
                         placeholder="Ex: 🎉 Lançamento do Dashboard em 2 dias!">
                 </div>
             </div>
@@ -131,12 +131,12 @@
             <!-- Dates -->
             <div class="grid grid-cols-2 gap-6 pt-6">
                 <div>
-                    <label class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase mb-1">Início</label>
+                    <label class="block text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-2">Início Projectado</label>
                     <input type="date" name="start_date" value="<?= date('Y-m-d') ?>" 
                         class="w-full bg-slate-50 dark:bg-white/5 border-0 rounded-lg text-slate-800 dark:text-white font-bold focus:ring-2 focus:ring-indigo-100 dark:focus:ring-white/10 text-sm h-12 px-3">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase mb-1">Deadline Estimado</label>
+                    <label class="block text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-2">Deadline Estimado</label>
                     <input type="date" name="deadline" 
                         class="w-full bg-slate-50 dark:bg-white/5 border-0 rounded-lg text-slate-800 dark:text-white font-bold focus:ring-2 focus:ring-indigo-100 dark:focus:ring-white/10 text-sm h-12 px-3">
                 </div>
@@ -155,7 +155,7 @@
                 
                 <!-- Project Value -->
                 <div class="group">
-                    <label class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase mb-1 group-focus-within:text-emerald-500 transition-colors">Valor do Projeto (R$)</label>
+                    <label class="block text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-2 group-focus-within:text-emerald-500 transition-colors">Valor do Projeto (R$)</label>
                     <div class="relative">
                         <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 font-bold">R$</span>
                         <input type="number" step="0.01" name="project_value" placeholder="0,00" 
@@ -165,14 +165,14 @@
 
                 <!-- Phases Count -->
                 <div class="group">
-                    <label class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase mb-1 group-focus-within:text-emerald-500 transition-colors">Número de Fases</label>
+                    <label class="block text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-2 group-focus-within:text-emerald-500 transition-colors">Número de Fases</label>
                     <input type="number" name="phases_count" placeholder="Ex: 5" 
                         class="w-full bg-slate-50 dark:bg-white/5 border-0 rounded-lg text-slate-800 dark:text-white font-bold focus:ring-2 focus:ring-emerald-100 dark:focus:ring-white/10 text-lg h-12 px-3">
                 </div>
 
                 <!-- Payment Method -->
                 <div class="group">
-                    <label class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase mb-1 group-focus-within:text-emerald-500 transition-colors">Forma de Pagamento</label>
+                    <label class="block text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-2 group-focus-within:text-emerald-500 transition-colors">Forma de Pagamento</label>
                     <select name="payment_method" class="w-full bg-slate-50 dark:bg-white/5 border-0 rounded-lg text-slate-800 dark:text-white font-bold focus:ring-2 focus:ring-emerald-100 dark:focus:ring-white/10 text-sm h-12 px-3">
                         <option value="Pix" class="dark:bg-slate-900">Pix</option>
                         <option value="Cartão de Crédito" class="dark:bg-slate-900">Cartão de Crédito</option>
@@ -183,7 +183,7 @@
 
                 <!-- Installments -->
                 <div class="group">
-                    <label class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase mb-1 group-focus-within:text-emerald-500 transition-colors">Parcelas</label>
+                    <label class="block text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-2 group-focus-within:text-emerald-500 transition-colors">Parcelas</label>
                     <input type="number" name="installments" value="1" min="1" 
                         class="w-full bg-slate-50 dark:bg-white/5 border-0 rounded-lg text-slate-800 dark:text-white font-bold focus:ring-2 focus:ring-emerald-100 dark:focus:ring-white/10 text-lg h-12 px-3">
                 </div>
@@ -194,7 +194,7 @@
 
             <!-- Contract Upload -->
             <div class="group">
-                <label class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase mb-3">Contrato Assinado (.pdf)</label>
+                <label class="block text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-3">Contrato Assinado (.pdf)</label>
                 <label class="flex flex-col items-center justify-center w-full h-32 border-2 border-slate-200 dark:border-white/10 border-dashed rounded-xl cursor-pointer bg-slate-50 dark:bg-white/5 hover:bg-slate-100 dark:hover:bg-white/10 hover:border-emerald-300 transition-all group">
                     <div class="flex flex-col items-center justify-center pt-5 pb-6">
                         <div x-show="!fileName">
@@ -211,7 +211,7 @@
             </div>
 
             <div class="mt-6 group">
-                <label class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase mb-1 group-focus-within:text-emerald-500 transition-colors">Gerente do Projeto</label>
+                <label class="block text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-2 group-focus-within:text-emerald-500 transition-colors">Gerente do Projeto</label>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <input type="text" name="manager_name" placeholder="Nome do Gerente" 
                         class="w-full bg-slate-50 dark:bg-white/5 border-0 rounded-lg text-slate-800 dark:text-white font-bold focus:ring-2 focus:ring-emerald-100 dark:focus:ring-white/10 text-sm h-12 px-3">
@@ -221,7 +221,7 @@
             </div>
 
             <div class="mt-6 group">
-                <label class="block text-xs font-bold text-slate-400 dark:text-slate-500 uppercase mb-1 group-focus-within:text-emerald-500 transition-colors">Links Externos</label>
+                <label class="block text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-2 group-focus-within:text-emerald-500 transition-colors">Links Externos</label>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                      <input type="url" name="github_url" placeholder="Repositório GitHub" 
                         class="w-full bg-slate-50 dark:bg-white/5 border-0 rounded-lg text-slate-800 dark:text-white font-bold focus:ring-2 focus:ring-emerald-100 dark:focus:ring-white/10 text-sm h-12 px-3">
