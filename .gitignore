@@ -1,48 +1,31 @@
-# Operon Cortex - Arquivos de Desenvolvimento e Sistema
+# Operon Cortex - Arquivos e Pastas para Ignorar
 
-# Dependências Node (apenas desenvolvimento)
+# Dependências (desenvolvimento)
 node_modules/
 package-lock.json
 
-# Arquivos de ambiente (sensíveis)
+# Ambiente (sensível)
 .env
 
-# Bancos de dados locais
-*.db
+# Banco de dados local
 *.sqlite
-database/*.sqlite
-
-# Uploads (manter estrutura, ignorar conteúdo)
-public/uploads/*
-!public/uploads/.gitkeep
+*.db
+database/operon.sqlite
 
 # Logs
 *.log
-logs/
-
-# Cache
-.cache/
-*.cache
 
 # Sistema operacional
 .DS_Store
 Thumbs.db
-desktop.ini
 
 # IDEs
 .idea/
 .vscode/
-*.sublime-project
-*.sublime-workspace
 
-# Arquivos temporários
+# Temporários
 *.tmp
-*.temp
 *.swp
-*~
 
-# Documentação de desenvolvimento (Gemini)
+# Gemini
 .gemini/
-
-# Arquivos de build CSS (regeneráveis)
-# public/assets/css/style.css  # Comentado: este arquivo é necessário em produção
