@@ -160,6 +160,7 @@ $router->get('/admin/projects/logs', [AdminController::class, 'logs']);
 // Admin Auth
 $router->get('/admin/login', [AdminController::class, 'login']);
 $router->post('/admin/login', [AdminController::class, 'authenticate']);
+$router->get('/admin/logout', [AdminController::class, 'logout']);
 
 // Client Auth & Dashboard
 $router->get('/login', [ClientController::class, 'login']);

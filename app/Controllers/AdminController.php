@@ -515,18 +515,36 @@ class AdminController extends Controller {
     }
 
     public function authenticate() {
-        // Mock authentication for now
         $email = $_POST['email'] ?? '';
         $password = $_POST['password'] ?? '';
         
-        if ($email === 'admin@operon.com' && $password === 'admin123') {
+        // Lista de usuários permitidos
+        $allowedUsers = [
+            'admin@operon.com' => 'operon123.',
+            'fabian@operon.com' => 'operon123.'
+        ];
+        
+        // Verifica se o email existe e a senha está correta
+        if (isset($allowedUsers[$email]) && $allowedUsers[$email] === $password) {
             $_SESSION['user_id'] = 1;
             $_SESSION['admin_logged_in'] = true;
+            $_SESSION['admin_email'] = $email; // Guarda qual admin logou
             header("Location: /admin");
             exit;
         }
         
-        header("Location: /login?error=1");
+        header("Location: /admin/login?error=1");
+        exit;
+    }
+
+    public function logout() {
+        // Limpa as variáveis de sessão do admin
+        unset($_SESSION['admin_logged_in']);
+        unset($_SESSION['admin_email']);
+        unset($_SESSION['user_id']);
+        
+        // Redireciona para a página de login
+        header("Location: /admin/login");
         exit;
     }
     public function updatePhase() {

@@ -160,9 +160,9 @@
                     <p class="text-sm font-bold text-white truncate">Admin User</p>
                     <p class="text-xs text-white/40 truncate font-medium underline decoration-operon-mist/30">Versão 2.0</p>
                 </div>
-                <button class="text-white/40 hover:text-white transition-colors">
+                <a href="/admin/logout" class="text-white/40 hover:text-white transition-colors" title="Sair">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
-                </button>
+                </a>
             </div>
         </div>
     </aside>

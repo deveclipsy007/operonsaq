@@ -450,6 +450,7 @@ class ClientController extends Controller {
         }
 
         header("Location: /client/support?error=1");
+        exit;
     }
 
     public function rateProject() {
